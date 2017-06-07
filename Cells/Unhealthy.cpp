@@ -25,6 +25,6 @@ void Unhealthy::computeAngle() {
 
 }
 
-bool Unhealthy::type() {
-    return false;
+short Unhealthy::type() {
+    return 0;
 }

@@ -25,7 +25,7 @@ public:
 
     void computeAngle();
 
-    bool type();
+    short type();
 };
 
 

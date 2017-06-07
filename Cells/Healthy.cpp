@@ -25,6 +25,6 @@ void Healthy::computeAngle() {
 
 }
 
-bool Healthy::type() {
-    return true;
+short Healthy::type() {
+    return 1;
 }

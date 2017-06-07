@@ -61,7 +61,7 @@ public:
      *
      * @return true (1) is healthy, false (0) if unhealthy
      */
-    virtual bool type() = 0;
+    virtual short type() = 0;
 
     void modGrowth(double rate);
 

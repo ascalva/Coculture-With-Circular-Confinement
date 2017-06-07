@@ -1,3 +1,0 @@
-/Users/AlbertoSerrano/Documents/college/courses/y3summer/code/coculture/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/AlbertoSerrano/Documents/college/courses/y3summer/code/coculture/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/AlbertoSerrano/Documents/college/courses/y3summer/code/coculture/cmake-build-debug/CMakeFiles/coculture.dir
