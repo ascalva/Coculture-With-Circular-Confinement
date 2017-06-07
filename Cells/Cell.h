@@ -63,8 +63,9 @@ public:
      */
     virtual bool type() = 0;
 
-};
+    void modGrowth(double rate);
 
+};
 
 
 double rc = 1.0;

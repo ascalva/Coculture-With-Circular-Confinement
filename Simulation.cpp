@@ -20,29 +20,31 @@ Simulation::Simulation(FILE * fp1)
 }
 
 void Simulation::init() {
-
+    for(Cell * i : this->population) {
+        i->modGrowth( GROWTH_RATE );
+    }
 }
 
 void Simulation::populate() {
     double x, y;
 
-    while( int i = 0 < N) {
+    for( int i = 0; i < N; i++ ) {
         x = this->radius * ran2(&seed);
         y = this->radius * ran2(&seed);
 
         switch( i%2 ) {
-            case 0:
-                this->population.insert(this->population.begin(), new Healthy(x,y,0.00001));
+
+            case -1: ///Purposefully not allowing unhealthy cells to be generated (should be 0)
+                this->population.insert(this->population.begin(), new Unhealthy(x, y, SMALL_RADIUS));
                 break;
 
             case 1:
-                this->population.insert(this->population.begin(), new Unhealthy(x,y,0.00001));
+                this->population.insert(this->population.begin(), new Healthy(x, y, SMALL_RADIUS));
                 break;
 
             default:
                 break;
         }
-        i++;
     }
 }
 

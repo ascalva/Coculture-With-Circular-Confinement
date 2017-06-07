@@ -26,3 +26,7 @@ double Cell::computeDistance(class Cell neighbor) {
 
 
 }
+
+void Cell::modGrowth(double rate) {
+    this->radius += rate;
+}

@@ -47,5 +47,7 @@ public:
 #define TMAX 2000.0
 #define RATIO 1.0
 
+#define SMALL_RADIUS 0.001
+#define GROWTH_RATE 0.001
 
 #endif //COCULTURE_SIMULATION_H
