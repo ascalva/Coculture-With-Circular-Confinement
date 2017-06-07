@@ -24,7 +24,7 @@ double Cell::computeDistance(class Cell neighbor) {
     dy = this->positionY - neighbor.positionY;
     drsq = (dx * dx) + (dy * dy);
 
-
+    return drsq;
 }
 
 void Cell::modGrowth(double rate) {

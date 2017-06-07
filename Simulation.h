@@ -12,12 +12,15 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cmath>
-#include <list>
+//#include <list>
+//#include <altivec.h>
+#include <vector>
 #include "Cells/Cell.h"
 #include "Cells/Healthy.h"
 #include "Cells/Unhealthy.h"
 #include "Cells/randomGen.h"
 
+using namespace std;
 
 class Simulation {
 
@@ -27,14 +30,14 @@ private:
     int N;
     int N2;
     int N1;
-    std::list<Cell*> population;
+    vector<Cell> population;
 
 public:
     Simulation(FILE * fp1);
 
-    void init();
-
     void populate();
+
+    void grow();
 
     void run();
 

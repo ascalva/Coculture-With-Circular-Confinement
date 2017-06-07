@@ -16,8 +16,10 @@ using namespace std;
 int main( void ) {
     FILE * fp1 = fopen("out1","w");
     Simulation coCulture(fp1);
-    coCulture.init();
+
     coCulture.populate();
+    coCulture.grow();
+
     coCulture.run();
 
     fclose(fp1);
