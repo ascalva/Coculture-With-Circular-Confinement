@@ -9,7 +9,6 @@
 #ifndef COCULTURE_CELL_H
 #define COCULTURE_CELL_H
 
-
 class Cell {
 
 protected:

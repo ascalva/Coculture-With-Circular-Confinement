@@ -16,6 +16,7 @@ Simulation::Simulation(FILE * fp1)
     this->N = (int) ((PHI * 4 * R * R)/M_PI);
     this->N2 = (int) (N/(1.0+RATIO));
     this->N1 = (int) (N2 * RATIO);
+
 }
 
 void Simulation::init() {
@@ -23,7 +24,12 @@ void Simulation::init() {
 }
 
 void Simulation::populate() {
+    double x, y;
 
+    while( int i = 0 < N) {
+        x =
+        i++;
+    }
 }
 
 void Simulation::run() {

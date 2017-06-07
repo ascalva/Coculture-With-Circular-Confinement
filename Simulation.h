@@ -12,6 +12,8 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cmath>
+#include <list>
+#include "Cells/Cell.h"
 
 class Simulation {
 
@@ -21,6 +23,7 @@ private:
     int N;
     int N2;
     int N1;
+    std::list<Cell*> population;
 
 public:
     Simulation(FILE * fp1);
