@@ -9,7 +9,7 @@
 
 #include "Healthy.h"
 
-Healthy::Healthy(double x, double y, float radius)
+Healthy::Healthy(double x, double y, double radius)
         : Cell(x, y, radius)
 {}
 

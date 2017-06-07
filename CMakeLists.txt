@@ -3,5 +3,5 @@ project(coculture)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp Cells/Cell.cpp Cells/Healthy.cpp Cells/Unhealthy.cpp Simulation.cpp)
+set(SOURCE_FILES main.cpp Cells/Cell.cpp Cells/Healthy.cpp Cells/Unhealthy.cpp Simulation.cpp Cells/randomGen.cpp)
 add_executable(coculture ${SOURCE_FILES})

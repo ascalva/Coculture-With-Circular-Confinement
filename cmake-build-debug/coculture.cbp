@@ -100,6 +100,12 @@
 		<Unit filename="/Users/AlbertoSerrano/Documents/college/courses/y3summer/code/coculture/Cells/Unhealthy.h">
 			<Option target="coculture"/>
 		</Unit>
+		<Unit filename="/Users/AlbertoSerrano/Documents/college/courses/y3summer/code/coculture/Cells/randomGen.cpp">
+			<Option target="coculture"/>
+		</Unit>
+		<Unit filename="/Users/AlbertoSerrano/Documents/college/courses/y3summer/code/coculture/Cells/randomGen.h">
+			<Option target="coculture"/>
+		</Unit>
 		<Unit filename="/Users/AlbertoSerrano/Documents/college/courses/y3summer/code/coculture/Simulation.cpp">
 			<Option target="coculture"/>
 		</Unit>

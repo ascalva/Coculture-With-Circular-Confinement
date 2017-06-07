@@ -27,7 +27,21 @@ void Simulation::populate() {
     double x, y;
 
     while( int i = 0 < N) {
-        x =
+        x = this->radius * ran2(&seed);
+        y = this->radius * ran2(&seed);
+
+        switch( i%2 ) {
+            case 0:
+                this->population.insert(this->population.begin(), new Healthy(x,y,0.00001));
+                break;
+
+            case 1:
+                this->population.insert(this->population.begin(), new Unhealthy(x,y,0.00001));
+                break;
+
+            default:
+                break;
+        }
         i++;
     }
 }

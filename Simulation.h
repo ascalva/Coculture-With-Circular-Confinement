@@ -14,6 +14,10 @@
 #include <cmath>
 #include <list>
 #include "Cells/Cell.h"
+#include "Cells/Healthy.h"
+#include "Cells/Unhealthy.h"
+#include "Cells/randomGen.h"
+
 
 class Simulation {
 

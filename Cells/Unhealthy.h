@@ -17,7 +17,7 @@ class Unhealthy: public Cell {
 public:
 
     //Constructor
-    Unhealthy(double x, double y, float radius);
+    Unhealthy(double x, double y, double radius);
 
     void computeForce(class Cell neighbor);
 

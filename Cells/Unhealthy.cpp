@@ -9,7 +9,7 @@
 
 #include "Unhealthy.h"
 
-Unhealthy::Unhealthy(double x, double y, float radius)
+Unhealthy::Unhealthy(double x, double y, double radius)
         : Cell(x, y, radius)
 {}
 
