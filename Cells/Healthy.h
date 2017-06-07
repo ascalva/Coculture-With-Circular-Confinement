@@ -13,6 +13,7 @@
 #include "Cell.h"
 
 class Healthy: public Cell {
+
 public:
 
     //Constructor

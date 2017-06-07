@@ -14,9 +14,24 @@
 class Cell {
 
 protected:
+    /**
+     * X and Y positions of cell
+     */
     double positionX, positionY;
+
+    /**
+     * Forces along the X and Y axis of the cell
+     */
     double forceX, forceY;
+
+    /**
+     * Angle the cell is facing
+     */
     double angle;
+
+    /**
+     * Radius of cell (prone to change during "growth")
+     */
     double radius;
 
 public:
@@ -66,7 +81,6 @@ public:
     void modGrowth(double rate);
 
 };
-
 
 double rc = 1.0;
 
