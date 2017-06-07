@@ -35,7 +35,7 @@ void Simulation::populate() {
         y = this->radius * ran2(&seed);
         Cell * temp;
 
-        switch( i%2 ) {
+        switch( i%2 ) { ///Needs to be modified to have proper ratio of healthy to unhealthy cells
 
             case -1: ///Purposefully not allowing unhealthy cells to be generated (should be 0)
                 temp = new Unhealthy(x,y,SMALL_RADIUS);
