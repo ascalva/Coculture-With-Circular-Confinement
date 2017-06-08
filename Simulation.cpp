@@ -28,29 +28,21 @@ void Simulation::grow() {
 }
 
 void Simulation::populate() {
-    double x, y;
 
-    for( int i = 0; i < N; i++ ) {
+    Cell * temp;
+    double x, y;
+    int cellNum;
+
+    for( cellNum = 0; cellNum < this->N; cellNum++ ) {
         x = this->radius * ran2(&seed);
         y = this->radius * ran2(&seed);
-        Cell * temp;
 
-        switch( i%2 ) { ///Needs to be modified to have proper ratio of healthy to unhealthy cells
-
-            case -1: ///Purposefully not allowing unhealthy cells to be generated (should be 0)
-                temp = new Unhealthy(x,y,SMALL_RADIUS);
-                this->population.push_back(*temp);
-//                this->population.insert(this->population.begin(), new Unhealthy(x, y, SMALL_RADIUS));
-                break;
-
-            case 1:
-                temp = new Healthy(x,y,SMALL_RADIUS);
-                this->population.push_back(*temp);
-//                this->population.insert(this->population.begin(), new Healthy(x, y, SMALL_RADIUS));
-                break;
-
-            default:
-                break;
+        if( cellNum < this->N1 ) {
+            temp = new Healthy(x,y,SMALL_RADIUS);
+            this->population.push_back(*temp);
+        } else {
+            temp = new Unhealthy(x,y,SMALL_RADIUS);
+            this->population.push_back(*temp);
         }
     }
 }
@@ -69,7 +61,7 @@ void Simulation::run() {
             }
         }
         for(i=population.begin(); i != population.end(); ++i) {
-            i->move();
+            i->move( DT );
         }
 
         t += DT;

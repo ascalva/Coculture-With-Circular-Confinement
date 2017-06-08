@@ -9,6 +9,7 @@
 #ifndef COCULTURE_CELL_H
 #define COCULTURE_CELL_H
 
+#include <math.h>
 #include "randomGen.h"
 
 class Cell {
@@ -62,7 +63,7 @@ public:
      * Using the force exerted on the cell, calculate the future position and move the
      *     cell accordingly.
      */
-    virtual void move() = 0;
+    void move(double dt);
 
     /**
      * Abstract Method
