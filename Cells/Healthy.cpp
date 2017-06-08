@@ -13,14 +13,10 @@ Healthy::Healthy(double x, double y, double radius)
         : Cell(x, y, radius)
 {}
 
-void Healthy::computeForce(class Cell neighbor) {
-
-}
-
 void Healthy::computeAngle() {
 
 }
 
 short Healthy::type() {
-    return 1;
+    return 0;
 }

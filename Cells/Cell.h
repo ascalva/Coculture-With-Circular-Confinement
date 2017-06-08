@@ -35,17 +35,25 @@ protected:
      */
     double radius;
 
-public:
-
-    Cell(double x, double y, double radius);
-
     /**
      * Compute the distance between two cells to see if they're "interacting"
      *
      * @param neighbor: Any other cell within the simulation
      * @return the distance
      */
-    double computeDistance(class Cell neighbor);
+    double computeDistance(class Cell neighbor, double * dx, double * dy);
+
+    /**
+     *
+     * @param h
+     * @param type
+     * @return
+     */
+    double computeJKRPotential(double h, int type);
+
+public:
+
+    Cell(double x, double y, double radius);
 
     /**
      * Abstract Method
@@ -56,7 +64,7 @@ public:
      *
      * @param neighbor
      */
-    virtual void computeForce(class Cell neighbor) = 0;
+    void computeForce(class Cell neighbor);
 
     /**
      * Abstract Method
@@ -75,7 +83,7 @@ public:
      * Abstract Method
      * Find if the cell is healthy or cancerous (unhealthy)
      *
-     * @return true (1) is healthy, false (0) if unhealthy
+     * @return 0 is healthy, 1 if unhealthy
      */
     virtual short type() = 0;
 
@@ -83,6 +91,7 @@ public:
 
 };
 
+#define V0 0.4
 double rc = 1.0;
 
 /* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */

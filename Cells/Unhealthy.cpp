@@ -13,15 +13,11 @@ Unhealthy::Unhealthy(double x, double y, double radius)
         : Cell(x, y, radius)
 {}
 
-void Unhealthy::computeForce(class Cell neighbor) {
-
-}
-
 
 void Unhealthy::computeAngle() {
 
 }
 
 short Unhealthy::type() {
-    return 0;
+    return 1;
 }

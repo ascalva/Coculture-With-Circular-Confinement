@@ -34,17 +34,17 @@ private:
     /**
      * Total number of cells
      */
-    int N;
+    int totalCells;
 
     /**
      * Number of unhealthy cells
      */
-    int N2;
+    int unealthyCells;
 
     /**
      * Number of healthy cells
      */
-    int N1;
+    int healthyCells;
 
     /**
      * Container for all cell objects

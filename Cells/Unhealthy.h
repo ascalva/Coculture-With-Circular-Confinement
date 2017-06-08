@@ -19,8 +19,6 @@ public:
     //Constructor
     Unhealthy(double x, double y, double radius);
 
-    void computeForce(class Cell neighbor);
-
     void computeAngle();
 
     short type();
