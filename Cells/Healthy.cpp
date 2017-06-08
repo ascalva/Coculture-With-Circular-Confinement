@@ -17,10 +17,6 @@ void Healthy::computeForce(class Cell neighbor) {
 
 }
 
-void Healthy::move() {
-
-}
-
 void Healthy::computeAngle() {
 
 }

@@ -21,8 +21,6 @@ public:
 
     void computeForce(class Cell neighbor);
 
-    void move();
-
     void computeAngle();
 
     short type();

@@ -13,9 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b8c77b0e-61f6-40c9-aaf3-f123876630d8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cells/Cell.cpp" afterPath="$PROJECT_DIR$/Cells/Cell.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cells/Cell.h" afterPath="$PROJECT_DIR$/Cells/Cell.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulation.cpp" afterPath="$PROJECT_DIR$/Simulation.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cells/Healthy.cpp" afterPath="$PROJECT_DIR$/Cells/Healthy.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cells/Healthy.h" afterPath="$PROJECT_DIR$/Cells/Healthy.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cells/Unhealthy.cpp" afterPath="$PROJECT_DIR$/Cells/Unhealthy.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cells/Unhealthy.h" afterPath="$PROJECT_DIR$/Cells/Unhealthy.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,20 +29,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Cell.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Cell.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cells/Cell.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            <state relative-caret-position="315">
+              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Simulation.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Simulation.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Simulation.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
+            <state relative-caret-position="1147">
               <caret line="77" column="82" lean-forward="false" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
               <folding>
                 <element signature="e#144#162#0" expanded="true" />
@@ -60,6 +61,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Unhealthy.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Cells/Unhealthy.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Cell.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cells/Cell.h">
           <provider selected="true" editor-type-id="text-editor">
@@ -68,6 +79,26 @@
               <folding>
                 <element signature="e#204#221#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Healthy.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Cells/Healthy.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Unhealthy.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Cells/Unhealthy.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,8 +116,8 @@
       <file leaf-file-name="Healthy.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cells/Healthy.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -107,15 +138,15 @@
         <option value="$PROJECT_DIR$/Cells/randomGen.h" />
         <option value="$PROJECT_DIR$/Cells/randomGen.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/Cells/Healthy.cpp" />
-        <option value="$PROJECT_DIR$/Cells/Unhealthy.cpp" />
-        <option value="$PROJECT_DIR$/Cells/Unhealthy.h" />
         <option value="$PROJECT_DIR$/Simulation.h" />
-        <option value="$PROJECT_DIR$/Cells/Healthy.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/Cells/Cell.h" />
         <option value="$PROJECT_DIR$/Simulation.cpp" />
         <option value="$PROJECT_DIR$/Cells/Cell.cpp" />
+        <option value="$PROJECT_DIR$/Cells/Healthy.h" />
+        <option value="$PROJECT_DIR$/Cells/Healthy.cpp" />
+        <option value="$PROJECT_DIR$/Cells/Unhealthy.cpp" />
+        <option value="$PROJECT_DIR$/Cells/Unhealthy.h" />
       </list>
     </option>
   </component>
@@ -410,7 +441,7 @@
       <workItem from="1496679429249" duration="2754000" />
       <workItem from="1496764643688" duration="13348000" />
       <workItem from="1496851855961" duration="12435000" />
-      <workItem from="1496942139652" duration="3993000" />
+      <workItem from="1496942139652" duration="5452000" />
     </task>
     <task id="LOCAL-00001" summary="Added">
       <created>1496783072522</created>
@@ -461,11 +492,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496869636869</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Further implementation of the Cell superclass">
+      <created>1496947239280</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1496947239280</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36619000" />
+    <option name="totallyTimeSpent" value="38078000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -512,7 +550,8 @@
     <MESSAGE value="Modified the Simulation class to store Cell objects in a vector" />
     <MESSAGE value="Added more documentation to Simulation.h" />
     <MESSAGE value="Added more documentation to Cell.h" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more documentation to Cell.h" />
+    <MESSAGE value="Further implementation of the Cell superclass" />
+    <option name="LAST_COMMIT_MESSAGE" value="Further implementation of the Cell superclass" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -818,30 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cells/Unhealthy.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cells/Healthy.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cells/Unhealthy.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -858,28 +873,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cells/Healthy.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Simulation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="77" column="82" lean-forward="false" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
-          <folding>
-            <element signature="e#144#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Simulation.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
           <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cells/Cell.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -894,11 +899,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cells/Cell.cpp">
+    <entry file="file://$PROJECT_DIR$/Cells/Healthy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cells/Unhealthy.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cells/Unhealthy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cells/Healthy.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1147">
+          <caret line="77" column="82" lean-forward="false" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
+          <folding>
+            <element signature="e#144#162#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
