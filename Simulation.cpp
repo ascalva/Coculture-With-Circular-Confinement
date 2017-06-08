@@ -13,8 +13,8 @@ Simulation::Simulation(FILE * fp1)
         : fp1(fp1),
           radius(R)
 {
-    this->totalCells = (int) ((PHI * 4 * R * R)/M_PI);
-    this->unealthyCells = (int) (this->totalCells/(1.0+RATIO));
+    this->totalCells = (int) ((PHI * 4 * R * R) / M_PI);
+    this->unealthyCells = (int) (this->totalCells / (1.0 + RATIO));
     this->healthyCells = (int) (this->unealthyCells * RATIO);
 
 }
@@ -27,7 +27,6 @@ void Simulation::grow() {
 }
 
 void Simulation::populate() {
-
     Cell * temp;
     double x, y;
     int cellNum;
@@ -37,20 +36,18 @@ void Simulation::populate() {
         y = this->radius * ran2(&seed);
 
         if( cellNum < this->healthyCells ) {
-            temp = new Healthy(x,y,SMALL_RADIUS);
+            temp = new Healthy(x, y, SMALL_RADIUS);
             this->population.push_back(*temp);
         } else {
-            temp = new Unhealthy(x,y,SMALL_RADIUS);
+            temp = new Unhealthy(x, y, SMALL_RADIUS);
             this->population.push_back(*temp);
         }
     }
 }
 
-///TODO: Re-implement in light of recent changes to Cell
 void Simulation::run() {
     vector<Cell>::iterator i;
     vector<Cell>::iterator j;
-    double dist;
     auto cell;
 
     while(double t = 0.0 < TMAX) {

@@ -9,8 +9,8 @@
 #ifndef COCULTURE_CELL_H
 #define COCULTURE_CELL_H
 
-#include <math.h>
 #include <tuple>
+#include <math.h>
 #include "randomGen.h"
 
 class Cell {
@@ -97,6 +97,11 @@ public:
      */
     void modGrowth(double rate);
 
+    /**
+     * Getter for position and angle
+     *
+     * @return a tuple with the x, y positions and and cell's angle
+     */
     std::tuple<double, double, double>getValues();
 
 };
