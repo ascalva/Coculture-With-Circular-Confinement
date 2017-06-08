@@ -75,3 +75,9 @@ void Cell::move(double dt) {
 void Cell::modGrowth(double rate) {
     this->radius += rate;
 }
+
+///Note to later me: Maybe implement cells with a specific ID, better track particular cells
+std::tuple<double, double, double>Cell::getValues() {
+
+    return std::make_tuple(this->positionX, this->positionY, this->angle);
+}

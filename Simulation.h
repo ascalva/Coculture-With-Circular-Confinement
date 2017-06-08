@@ -74,10 +74,6 @@ public:
      */
     void run();
 
-    /**
-     * Function to print x and y positions with angle of cells to a specified file
-     */
-    void toString();
 };
 
 #define R 9

@@ -10,6 +10,7 @@
 #define COCULTURE_CELL_H
 
 #include <math.h>
+#include <tuple>
 #include "randomGen.h"
 
 class Cell {
@@ -44,10 +45,12 @@ protected:
     double computeDistance(class Cell neighbor, double * dx, double * dy);
 
     /**
+     * Compute the potential between two interacting cells, while taking into account
+     *     the types of each.
      *
      * @param h
-     * @param type
-     * @return
+     * @param type an integer within [0,2], defines the interaction type
+     * @return the potential
      */
     double computeJKRPotential(double h, int type);
 
@@ -87,7 +90,14 @@ public:
      */
     virtual short type() = 0;
 
+    /**
+     * Change the radius of the cell by 'rate' amount
+     *
+     * @param rate
+     */
     void modGrowth(double rate);
+
+    std::tuple<double, double, double>getValues();
 
 };
 
@@ -97,6 +107,5 @@ double rc = 1.0;
 /* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */
 double A[3] = {30.0, 15.0, 20.0};
 double B[3] = {11.0, 4.50, 7.00};
-
 
 #endif //COCULTURE_CELL_H

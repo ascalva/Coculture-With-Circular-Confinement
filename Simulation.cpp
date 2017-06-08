@@ -46,30 +46,32 @@ void Simulation::populate() {
     }
 }
 
-///TODO: Reimplement in light of recent changes to Cell
+///TODO: Re-implement in light of recent changes to Cell
 void Simulation::run() {
     vector<Cell>::iterator i;
     vector<Cell>::iterator j;
     double dist;
+    auto cell;
 
     while(double t = 0.0 < TMAX) {
-        for(i = population.begin() ; i != population.end(); ++i) {
-            for(j = population.begin(); j != population.end(); ++j) {
-                if( i->computeDistance( *j ) < pow(this->radius, 2) ) {
-                    i->computeForce(*j); ///imp cF()
-                }
+        t += DT;
+
+        for(i = this->population.begin(); i != this->population.end(); ++i) {
+            for(j = this->population.begin(); j != this->population.end(); ++j) {
+                i->computeForce( *j );
             }
         }
-        for(i=population.begin(); i != population.end(); ++i) {
+
+        int curr = 0;
+        for(i = this->population.begin(); i != this->population.end(); ++i) {
             i->move( DT );
-        }
-
-        t += DT;
-        ///Need to find place to increment t and implement prints to file
+            cell = i->getValues();
+            fprintf(fp1, "%4d %e %5e %5e %5d\n",
+                    ++curr,
+                    std::get<0>(cell),
+                    std::get<1>(cell),
+                    std::get<2>(cell),
+                    i->type());
+        } fprintf(fp1, "\n\n");
     }
-
-}
-
-void Simulation::toString() {
-
 }
