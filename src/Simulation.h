@@ -14,10 +14,8 @@
 #include <cmath>
 #include <vector>
 
-#include "Cells/Cell.h"
-#include "Cells/Healthy.h"
-#include "Cells/Unhealthy.h"
-#include "Cells/randomGen.h"
+#include "Cell.h"
+#include "randomGen.h"
 
 using namespace std;
 

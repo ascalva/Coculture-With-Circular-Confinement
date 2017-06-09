@@ -8,10 +8,11 @@
 
 #include "Cell.h"
 
-Cell::Cell(double x, double y, double radius)
+Cell::Cell(double x, double y, double radius, short cellType)
         : positionX(x),
           positionY(y),
-          radius(radius)
+          radius(radius),
+          cellType(cellType)
 {
     this->angle = 2.0 * M_PI * (0.5 - ran2(&seed)); //Random initial angle
 
@@ -91,7 +92,6 @@ void Cell::move(double dt, float R) {
             this->positionY += dyt;
         }
     }
-    ///TODO: Circular, elastic confinement
 }
 
 void Cell::modGrowth(double rate) {
@@ -102,4 +102,8 @@ void Cell::modGrowth(double rate) {
 std::tuple<double, double, double>Cell::getValues() {
 
     return std::make_tuple(this->positionX, this->positionY, this->angle);
+}
+
+short Cell::type() {
+    return this->cellType;
 }

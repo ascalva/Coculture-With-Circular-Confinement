@@ -55,10 +55,10 @@ void Simulation::populate() {
         }
 
         if( cellNum < this->healthyCells ) {
-            temp = new Healthy(x, y, SMALL_RADIUS);
+            temp = new Cell(x, y, SMALL_RADIUS, 0);
             this->population.push_back(*temp);
         } else {
-            temp = new Unhealthy(x, y, SMALL_RADIUS);
+            temp = new Cell(x, y, SMALL_RADIUS, 1);
             this->population.push_back(*temp);
         }
     }

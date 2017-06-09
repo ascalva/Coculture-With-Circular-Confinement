@@ -15,7 +15,7 @@
 
 class Cell {
 
-protected:
+private:
     /**
      * X and Y positions of cell
      */
@@ -35,6 +35,8 @@ protected:
      * Radius of cell (prone to change during "growth")
      */
     double radius;
+
+    short cellType;
 
     /**
      * Compute the distance between two cells to see if they're "interacting"
@@ -56,7 +58,7 @@ protected:
 
 public:
 
-    Cell(double x, double y, double radius);
+    Cell(double x, double y, double radius, short cellType);
 
     /**
      * Abstract Method
@@ -80,7 +82,7 @@ public:
      * Abstract Method
      * Calculates the angle of a cell (somewhat randomly)
      */
-    virtual void computeAngle() = 0;
+//    virtual void computeAngle() = 0;
 
     /**
      * Abstract Method
@@ -88,7 +90,7 @@ public:
      *
      * @return 0 is healthy, 1 if unhealthy
      */
-    virtual short type() = 0;
+    short type();
 
     /**
      * Change the radius of the cell by 'rate' amount
