@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-#include "Simulation.h"
+#include "../include/Simulation.h"
 
 using namespace std;
 

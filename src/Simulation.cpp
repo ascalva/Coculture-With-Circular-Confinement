@@ -6,7 +6,7 @@
  * purpose:
  */
 
-#include "Simulation.h"
+#include "../include/Simulation.h"
 
 
 Simulation::Simulation(FILE * fp1)

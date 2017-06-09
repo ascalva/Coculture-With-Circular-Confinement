@@ -4,7 +4,7 @@
  * @author: Alberto Serrano
  */
 
-#include "randomGen.h"
+#include "../include/randomGen.h"
 
 double ran2(long *idum) {
     int j;

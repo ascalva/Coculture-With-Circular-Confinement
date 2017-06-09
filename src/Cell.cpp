@@ -6,7 +6,7 @@
  * purpose: Abstract superclass for different types of cells (subclasses)
  */
 
-#include "Cell.h"
+#include "../include/Cell.h"
 
 Cell::Cell(double x, double y, double radius, short cellType)
         : positionX(x),
