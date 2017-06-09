@@ -74,7 +74,7 @@ public:
      * Using the force exerted on the cell, calculate the future position and move the
      *     cell accordingly.
      */
-    void move(double dt);
+    void move(double dt, float R);
 
     /**
      * Abstract Method

@@ -13,7 +13,7 @@ Cell::Cell(double x, double y, double radius)
           positionY(y),
           radius(radius)
 {
-    this->angle = 2.0 * M_PI * (0.5 - ran2(&seed)); //Random angle
+    this->angle = 2.0 * M_PI * (0.5 - ran2(&seed)); //Random initial angle
 
     this->forceX = 0.0;
     this->forceY = 0.0;
@@ -43,8 +43,8 @@ void Cell::computeForce(class Cell neighbor) {
     this->forceX = V0 * cost;
     this->forceY = V0 * sint;
 
-    double * dx = (double *) 0;
-    double * dy = (double *) 0;
+    double * dx = nullptr;
+    double * dy = nullptr;
     double drsq = computeDistance(neighbor, dx, dy);
 
     if( drsq >= 0 && drsq < (rc * rc) ) {
@@ -62,13 +62,35 @@ void Cell::computeForce(class Cell neighbor) {
     }
 }
 
-void Cell::move(double dt) {
+void Cell::move(double dt, float R) {
 
-    this->positionX = this->positionX + (this->forceX * dt);
-    this->positionY = this->positionY + (this->forceY * dt);
+    double dxt = this->forceX * dt;
+    double dyt = this->forceY * dt;
+    this->positionX = this->positionX + dxt;
+    this->positionY = this->positionY + dyt;
 
     this->angle = this->angle; //not yet finished
 
+    bool xSign = this->positionX >= 0;
+    bool ySign = this->positionY >= 0;
+
+    //Elastic walls
+    if( (this->positionX * this->positionX) > (R * R) ) {
+        this->angle += M_PI;
+        if( xSign && ySign ) {
+            this->positionX -= dxt;
+            this->positionY -= dyt;
+        } if( xSign && !ySign ) {
+            this->positionX -= dxt;
+            this->positionY += dyt;
+        } if( !xSign && ySign ) {
+            this->positionX += dxt;
+            this->positionX -= dyt;
+        } if( !xSign && !ySign ) {
+            this->positionX += dxt;
+            this->positionY += dyt;
+        }
+    }
     ///TODO: Circular, elastic confinement
 }
 

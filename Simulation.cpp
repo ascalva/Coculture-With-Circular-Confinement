@@ -35,6 +35,25 @@ void Simulation::populate() {
         x = this->radius * ran2(&seed);
         y = this->radius * ran2(&seed);
 
+        //Randonly make x and/or why negative
+        switch( rand() % 4 ) {
+            case 1:
+                x *= -1;
+                break;
+
+            case 2:
+                y *= -1;
+                break;
+
+            case 3:
+                x *= -1;
+                y *= -1;
+                break;
+
+            default:
+                break;
+        }
+
         if( cellNum < this->healthyCells ) {
             temp = new Healthy(x, y, SMALL_RADIUS);
             this->population.push_back(*temp);
@@ -61,7 +80,7 @@ void Simulation::run() {
 
         int curr = 0;
         for(i = this->population.begin(); i != this->population.end(); ++i) {
-            i->move( DT );
+            i->move( DT, this->radius );
             cell = i->getValues();
             fprintf(fp1, "%4d %e %5e %5e %5d\n",
                     ++curr,
