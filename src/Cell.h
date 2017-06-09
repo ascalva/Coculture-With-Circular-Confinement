@@ -56,6 +56,12 @@ private:
      */
     double computeJKRPotential(double h, int type);
 
+    /**
+     * Abstract Method
+     * Calculates the angle of a cell (somewhat randomly)
+     */
+    double computeAngle(long *idum);
+
 public:
 
     Cell(double x, double y, double radius, short cellType);
@@ -77,12 +83,6 @@ public:
      *     cell accordingly.
      */
     void move(double dt, float R);
-
-    /**
-     * Abstract Method
-     * Calculates the angle of a cell (somewhat randomly)
-     */
-//    virtual void computeAngle() = 0;
 
     /**
      * Abstract Method
@@ -110,6 +110,8 @@ public:
 
 #define V0 0.4
 double rc = 1.0;
+double dcoef_ang = 0.005;       //angular diffusion coefficient
+double facang = sqrt(2*dcoef_ang * 0.001); ///find better way to import DT
 
 /* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */
 double A[3] = {30.0, 15.0, 20.0};

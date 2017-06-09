@@ -35,19 +35,18 @@ long seed1 = -1872371;
  */
 double ran2(long *idum);
 
-
-#undef IM1
-#undef IM2
-#undef AM
-#undef IMM1
-#undef IA1
-#undef IA2
-#undef IQ1
-#undef IQ2
-#undef IR1
-#undef IR2
-#undef NTAB
-#undef NDIV
-#undef EPS
-#undef RNMX
+//#undef IM1
+//#undef IM2
+//#undef AM
+//#undef IMM1
+//#undef IA1
+//#undef IA2
+//#undef IQ1
+//#undef IQ2
+//#undef IR1
+//#undef IR2
+//#undef NTAB
+//#undef NDIV
+//#undef EPS
+//#undef RNMX
 #endif //COCULTURE_RANDOMGEN_H
