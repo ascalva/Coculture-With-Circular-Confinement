@@ -12,14 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8c77b0e-61f6-40c9-aaf3-f123876630d8" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Cell.h" afterPath="$PROJECT_DIR$/include/Cell.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Simulation.h" afterPath="$PROJECT_DIR$/include/Simulation.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/randomGen.cpp" afterPath="$PROJECT_DIR$/lib/randomGen.cpp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/randomGen.h" afterPath="$PROJECT_DIR$/include/randomGen.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cell.cpp" afterPath="$PROJECT_DIR$/src/Cell.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Simulation.cpp" afterPath="$PROJECT_DIR$/src/Simulation.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -465,7 +458,7 @@
       <workItem from="1496679429249" duration="2754000" />
       <workItem from="1496764643688" duration="13348000" />
       <workItem from="1496851855961" duration="12435000" />
-      <workItem from="1496942139652" duration="21447000" />
+      <workItem from="1496942139652" duration="21656000" />
     </task>
     <task id="LOCAL-00001" summary="Added">
       <created>1496783072522</created>
@@ -572,11 +565,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497034154669</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Reorganization of file structure">
+      <created>1497034450099</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1497034450099</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54073000" />
+    <option name="totallyTimeSpent" value="54282000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -631,7 +631,8 @@
     <MESSAGE value="Added elastic walls and updated populate() method to include negative numbers" />
     <MESSAGE value="Removed the Healthy and Unhealthy subclasses and made the Cell class non-abstract. Also reorganized file structure." />
     <MESSAGE value="Fixed a few issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a few issues" />
+    <MESSAGE value="Reorganization of file structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganization of file structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
