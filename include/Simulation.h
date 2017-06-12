@@ -49,6 +49,8 @@ private:
      */
     vector<Cell> population;
 
+    randomGen * randomGen::s_instance();
+
 public:
     Simulation(FILE * fp1);
 
@@ -82,5 +84,8 @@ public:
 
 #define SMALL_RADIUS 0.001 //"Infinitesimal" size
 #define GROWTH_RATE 0.001
+
+#define SEED1 -8838317
+#define SEED2 -1872371
 
 #endif //COCULTURE_SIMULATION_H

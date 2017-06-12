@@ -17,6 +17,7 @@ Simulation::Simulation(FILE * fp1)
     this->unealthyCells = (int) (this->totalCells / (1.0 + RATIO));
     this->healthyCells = (int) (this->unealthyCells * RATIO);
 
+    randomGen::instance()->setValues((long) SEED1, (long) SEED2);
 }
 
 void Simulation::grow() {
@@ -67,7 +68,7 @@ void Simulation::populate() {
 void Simulation::run() {
     vector<Cell>::iterator i;
     vector<Cell>::iterator j;
-    auto cell;
+    std::tuple<double, double, double> cell;
 
     while(double t = 0.0 < TMAX) {
         t += DT;

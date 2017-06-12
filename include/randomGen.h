@@ -8,6 +8,40 @@
 #ifndef COCULTURE_RANDOMGEN_H
 #define COCULTURE_RANDOMGEN_H
 
+class randomGen {
+
+private:
+
+    static randomGen * s_instance;
+
+    long seed;// = -8838317;  //use large negative integers for seeds
+    long seed1;// = -1872371;
+
+    randomGen(long seed1, long seed2);
+
+    /**
+     * Compute a 'random' between 0 and 1
+     *
+     * (C) Copr. 1986-92 Numerical Recipes Software
+     *
+     * @param idum is the address of the seed used
+     */
+    double ran2(long *idum);
+
+public:
+
+    void setValues(long seed1, long seed2);
+
+    double use(int seed);
+
+    static randomGen * instance() {
+        if(!s_instance) {
+            s_instance = new randomGen;
+        }
+        return s_instance;
+    }
+};
+
 #define IM1 2147483563
 #define IM2 2147483399
 #define AM (1.0/IM1)
@@ -23,30 +57,4 @@
 #define EPS 1.2e-7
 #define RNMX (1.0-EPS)
 
-long seed = -8838317;  //use large negative integers for seeds
-long seed1 = -1872371;
-
-/**
- * Compute a 'random' between 0 and 1
- *
- * (C) Copr. 1986-92 Numerical Recipes Software
- *
- * @param idum is the address of the seed used
- */
-double ran2(long *idum);
-
-//#undef IM1
-//#undef IM2
-//#undef AM
-//#undef IMM1
-//#undef IA1
-//#undef IA2
-//#undef IQ1
-//#undef IQ2
-//#undef IR1
-//#undef IR2
-//#undef NTAB
-//#undef NDIV
-//#undef EPS
-//#undef RNMX
 #endif //COCULTURE_RANDOMGEN_H

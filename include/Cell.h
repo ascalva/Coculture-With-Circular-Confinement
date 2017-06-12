@@ -16,6 +16,7 @@
 class Cell {
 
 private:
+
     /**
      * X and Y positions of cell
      */
@@ -36,6 +37,9 @@ private:
      */
     double radius;
 
+    /**
+     * Type of cell, 0 if healthy, 1 if unhealthy (cancer)
+     */
     short cellType;
 
     /**
@@ -67,7 +71,6 @@ public:
     Cell(double x, double y, double radius, short cellType);
 
     /**
-     * Abstract Method
      * Compute the force between two cells, could potentially be called by computeDistance
      *     if two cells are interacting (future: make sure there's no double counting with
      *     forces).
@@ -78,14 +81,12 @@ public:
     void computeForce(class Cell neighbor);
 
     /**
-     * Abstract Method
      * Using the force exerted on the cell, calculate the future position and move the
      *     cell accordingly.
      */
     void move(double dt, float R);
 
     /**
-     * Abstract Method
      * Find if the cell is healthy or cancerous (unhealthy)
      *
      * @return 0 is healthy, 1 if unhealthy
@@ -109,12 +110,8 @@ public:
 };
 
 #define V0 0.4
-double rc = 1.0;
-double dcoef_ang = 0.005;       //angular diffusion coefficient
-double facang = sqrt(2*dcoef_ang * 0.001); ///find better way to import DT
-
-/* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */
-double A[3] = {30.0, 15.0, 20.0};
-double B[3] = {11.0, 4.50, 7.00};
+#define RC 1.0;
+#define RCSQ RC * RC
+#define DCOEF_ANG 0.005;       //angular diffusion coefficient
 
 #endif //COCULTURE_CELL_H

@@ -30,6 +30,10 @@ double Cell::computeDistance(class Cell neighbor, double * dx, double * dy) {
 
 double Cell::computeJKRPotential(double h, int type) {
 
+    /* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */
+    static constexpr double A[3] = {30.0, 15.0, 20.0};
+    static constexpr double B[3] = {11.0, 4.50, 7.00};
+
     double h34 = pow(h, 0.75);
     double h32 = h34 * h34;
 
@@ -48,6 +52,7 @@ void Cell::computeForce(class Cell neighbor) {
     double * dy = nullptr;
     double drsq = computeDistance(neighbor, dx, dy);
 
+    double rc = RC;
     if( drsq >= 0 && drsq < (rc * rc) ) {
         double dr = sqrt(drsq);
         double fval = computeJKRPotential(1.0 - dr, this->type() + neighbor.type()) / dr;
@@ -70,7 +75,8 @@ void Cell::move(double dt, float R) {
     this->positionX = this->positionX + dxt;
     this->positionY = this->positionY + dyt;
 
-    this->angle += facang * computeAngle(&seed);
+    double dcoefAngle = DCOEF_ANG;
+    this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(&seed); //facang * random noise
 
     bool xSign = this->positionX >= 0;
     bool ySign = this->positionY >= 0;

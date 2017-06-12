@@ -6,7 +6,24 @@
 
 #include "../include/randomGen.h"
 
-double ran2(long *idum) {
+randomGen::randomGen(long seed1 = 0, long seed2 = 0)
+        : seed(seed1),
+          seed1(seed2) {}
+
+void randomGen::setValues(long seed1, long seed2) {
+    this->seed = seed1;
+    this->seed1 = seed2;
+}
+
+double randomGen::use(int seedNum) {
+    if( seedNum ) {
+        return ran2( &this->seed );
+    } else {
+        return ran2( &this->seed1 );
+    }
+}
+
+double randomGen::ran2(long *idum) {
     int j;
     long k;
     static long idum2=123456789;
