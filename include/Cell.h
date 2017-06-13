@@ -50,7 +50,7 @@ private:
      * @param neighbor: Any other cell within the simulation
      * @return the distance
      */
-    double computeDistance(class Cell neighbor, double * dx, double * dy);
+//    double computeDistance(class Cell neighbor, double * dx, double * dy);
 
     /**
      * Compute the potential between two interacting cells, while taking into account

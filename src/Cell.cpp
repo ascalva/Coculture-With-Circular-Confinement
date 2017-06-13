@@ -21,15 +21,15 @@ Cell::Cell(double x, double y, double radius, short cellType, class randomGen * 
     this->forceY = 0.0;
 }
 
-double Cell::computeDistance(class Cell neighbor, double * dx, double * dy) {
-
-    double x = this->positionX - neighbor.positionX;
-    double y = this->positionY - neighbor.positionY;
-
-    dx = &x; dy = &y;
-
-    return ((*dx) * (*dx)) + ((*dy) * (*dy));
-}
+//double Cell::computeDistance(class Cell neighbor, double * dx, double * dy) {
+//
+//    double x = this->positionX - neighbor.positionX;
+//    double y = this->positionY - neighbor.positionY;
+//
+//    dx = &x; dy = &y;
+//
+//    return ((*dx) * (*dx)) + ((*dy) * (*dy));
+//}
 
 double Cell::computeJKRPotential(double h, int type) {
 
@@ -51,17 +51,17 @@ void Cell::computeForce(class Cell neighbor) {
     this->forceX = V0 * cost;
     this->forceY = V0 * sint;
 
-    double * dx = nullptr;
-    double * dy = nullptr;
-    double drsq = computeDistance(neighbor, dx, dy);
+    double dx = this->positionX - neighbor.positionX;
+    double dy = this->positionY - neighbor.positionY;
+    double drsq = (dx * dx) + (dy * dy);
 
     double rc = RC;
     if( drsq >= 0 && drsq < (rc * rc) ) {
         double dr = sqrt(drsq);
         double fval = computeJKRPotential(1.0 - dr, this->type() + neighbor.type()) / dr;
 
-        double fxtmp = fval * (*dx);
-        double fytmp = fval * (*dy);
+        double fxtmp = fval * (dx);
+        double fytmp = fval * (dy);
 
         this->forceX += fxtmp;
         this->forceY += fytmp;
