@@ -12,12 +12,9 @@ class randomGen {
 
 private:
 
-    static randomGen * s_instance;
+    long seed;// = -8838317;
 
-    long seed;// = -8838317;  //use large negative integers for seeds
     long seed1;// = -1872371;
-
-    randomGen(long seed1, long seed2);
 
     /**
      * Compute a 'random' between 0 and 1
@@ -30,16 +27,9 @@ private:
 
 public:
 
-    void setValues(long seed1, long seed2);
+    randomGen(long seed1 = (long) 0, long seed2 = (long) 0);
 
     double use(int seed);
-
-    static randomGen * instance() {
-        if(!s_instance) {
-            s_instance = new randomGen;
-        }
-        return s_instance;
-    }
 };
 
 #define IM1 2147483563

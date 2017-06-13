@@ -6,17 +6,12 @@
 
 #include "../include/randomGen.h"
 
-randomGen::randomGen(long seed1 = 0, long seed2 = 0)
+randomGen::randomGen(long seed1, long seed2)
         : seed(seed1),
           seed1(seed2) {}
 
-void randomGen::setValues(long seed1, long seed2) {
-    this->seed = seed1;
-    this->seed1 = seed2;
-}
-
 double randomGen::use(int seedNum) {
-    if( seedNum ) {
+    if( !seedNum ) {
         return ran2( &this->seed );
     } else {
         return ran2( &this->seed1 );

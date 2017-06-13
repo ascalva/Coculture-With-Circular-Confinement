@@ -37,6 +37,8 @@ private:
      */
     double radius;
 
+    randomGen * randomGen = nullptr;
+
     /**
      * Type of cell, 0 if healthy, 1 if unhealthy (cancer)
      */
@@ -64,11 +66,11 @@ private:
      * Abstract Method
      * Calculates the angle of a cell (somewhat randomly)
      */
-    double computeAngle(long *idum);
+    double computeAngle(short idum);
 
 public:
 
-    Cell(double x, double y, double radius, short cellType);
+    Cell(double x, double y, double radius, short cellType, class randomGen * ran);
 
     /**
      * Compute the force between two cells, could potentially be called by computeDistance

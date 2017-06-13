@@ -49,9 +49,11 @@ private:
      */
     vector<Cell> population;
 
-    randomGen * randomGen::s_instance();
+    class randomGen * randomGen = nullptr;
+
 
 public:
+
     Simulation(FILE * fp1);
 
     /**

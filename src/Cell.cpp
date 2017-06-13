@@ -8,13 +8,14 @@
 
 #include "../include/Cell.h"
 
-Cell::Cell(double x, double y, double radius, short cellType)
+Cell::Cell(double x, double y, double radius, short cellType, class randomGen * ran)
         : positionX(x),
           positionY(y),
           radius(radius),
+          randomGen(ran),
           cellType(cellType)
 {
-    this->angle = 2.0 * M_PI * (0.5 - ran2(&seed)); //Random initial angle
+    this->angle = 2.0 * M_PI * (0.5 - this->randomGen->use(0)); //Random initial angle
 
     this->forceX = 0.0;
     this->forceY = 0.0;
@@ -22,8 +23,10 @@ Cell::Cell(double x, double y, double radius, short cellType)
 
 double Cell::computeDistance(class Cell neighbor, double * dx, double * dy) {
 
-    *dx = this->positionX - neighbor.positionX;
-    *dy = this->positionY - neighbor.positionY;
+    double x = this->positionX - neighbor.positionX;
+    double y = this->positionY - neighbor.positionY;
+
+    dx = &x; dy = &y;
 
     return ((*dx) * (*dx)) + ((*dy) * (*dy));
 }
@@ -76,7 +79,7 @@ void Cell::move(double dt, float R) {
     this->positionY = this->positionY + dyt;
 
     double dcoefAngle = DCOEF_ANG;
-    this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(&seed); //facang * random noise
+    this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(0); //facang * random noise
 
     bool xSign = this->positionX >= 0;
     bool ySign = this->positionY >= 0;
@@ -110,15 +113,15 @@ std::tuple<double, double, double>Cell::getValues() {
     return std::make_tuple(this->positionX, this->positionY, this->angle);
 }
 
-double Cell::computeAngle(long *idum) {
+double Cell::computeAngle(short idum) {
     static int iset = 0;
     static double gset;
     double fac,rsq,v1,v2;
 
     if(iset == 0) {
         do {
-            v1 = 2.0 * ran2(idum) - 1.0;
-            v2 = 2.0 * ran2(idum) - 1.0;
+            v1 = 2.0 * this->randomGen->use(idum) - 1.0;
+            v2 = 2.0 * this->randomGen->use(idum) - 1.0;
             rsq=v1*v1+v2*v2;
         } while( rsq >= 1.0 || rsq == 0.0 );
 

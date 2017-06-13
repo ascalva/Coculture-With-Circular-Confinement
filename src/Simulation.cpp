@@ -17,10 +17,10 @@ Simulation::Simulation(FILE * fp1)
     this->unealthyCells = (int) (this->totalCells / (1.0 + RATIO));
     this->healthyCells = (int) (this->unealthyCells * RATIO);
 
-    randomGen::instance()->setValues((long) SEED1, (long) SEED2);
+    this->randomGen = new class randomGen((long) SEED1, (long) SEED2);
 }
 
-void Simulation::grow() {
+void Simulation::grow() { ///TODO: fix
     vector<Cell>::iterator it;
     for(it = this->population.begin(); it != this->population.end(); ++it) {
         it->modGrowth( GROWTH_RATE );
@@ -32,9 +32,10 @@ void Simulation::populate() {
     double x, y;
     int cellNum;
 
+//    randomGen::instance()->use(0);
     for( cellNum = 0; cellNum < this->totalCells; cellNum++ ) {
-        x = this->radius * ran2(&seed);
-        y = this->radius * ran2(&seed);
+        x = this->radius * this->randomGen->use(0);
+        y = this->radius * this->randomGen->use(0);
 
         //Randonly make x and/or why negative
         switch( rand() % 4 ) {
@@ -56,10 +57,10 @@ void Simulation::populate() {
         }
 
         if( cellNum < this->healthyCells ) {
-            temp = new Cell(x, y, SMALL_RADIUS, 0);
+            temp = new Cell(x, y, SMALL_RADIUS, 0, this->randomGen);
             this->population.push_back(*temp);
         } else {
-            temp = new Cell(x, y, SMALL_RADIUS, 1);
+            temp = new Cell(x, y, SMALL_RADIUS, 1, this->randomGen);
             this->population.push_back(*temp);
         }
     }
