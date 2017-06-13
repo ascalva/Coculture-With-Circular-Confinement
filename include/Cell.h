@@ -37,20 +37,12 @@ private:
      */
     double radius;
 
-    randomGen * randomGen = nullptr;
+    class randomGen * randomGen = nullptr;
 
     /**
      * Type of cell, 0 if healthy, 1 if unhealthy (cancer)
      */
     short cellType;
-
-    /**
-     * Compute the distance between two cells to see if they're "interacting"
-     *
-     * @param neighbor: Any other cell within the simulation
-     * @return the distance
-     */
-//    double computeDistance(class Cell neighbor, double * dx, double * dy);
 
     /**
      * Compute the potential between two interacting cells, while taking into account

@@ -21,16 +21,6 @@ Cell::Cell(double x, double y, double radius, short cellType, class randomGen * 
     this->forceY = 0.0;
 }
 
-//double Cell::computeDistance(class Cell neighbor, double * dx, double * dy) {
-//
-//    double x = this->positionX - neighbor.positionX;
-//    double y = this->positionY - neighbor.positionY;
-//
-//    dx = &x; dy = &y;
-//
-//    return ((*dx) * (*dx)) + ((*dy) * (*dy));
-//}
-
 double Cell::computeJKRPotential(double h, int type) {
 
     /* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */
