@@ -14,17 +14,23 @@
 using namespace std;
 
 int main( void ) {
-    FILE * fp1 = fopen("out1","w");
+
+#ifndef CMD_OUT
+    FILE * fp1 = fopen("1.out","w");
+#else
+    FILE * fp1 = nullptr;
+#endif
+
     Simulation coCulture(fp1);
 
-#ifndef GROW
     coCulture.populate();
     coCulture.grow();
-#else
-    //other way to populate
-#endif
+
     coCulture.run();
 
+#ifndef CMD_OUT
     fclose(fp1);
+#endif
+
     return 0;
 }

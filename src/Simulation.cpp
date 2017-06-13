@@ -87,12 +87,28 @@ void Simulation::run() {
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             i->move( DT, this->radius );
             cell = i->getValues();
+#ifndef CMD_OUT
             fprintf(fp1, "%4d %e %5e %5e %5d\n",
                     ++curr,
                     std::get<0>(cell),
                     std::get<1>(cell),
                     std::get<2>(cell),
                     i->type());
-        } fprintf(fp1, "\n\n");
+#else
+            printf( "%4d %e %5e %5e %5d\n",
+                    ++curr,
+                    std::get<0>(cell),
+                    std::get<1>(cell),
+                    std::get<2>(cell),
+                    i->type());
+#endif
+        }
+
+#ifndef CMD_OUT
+        fprintf(fp1, "\n\n");
+#else
+        printf("\n\n");
+#endif
+
     }
 }

@@ -24,8 +24,8 @@ Cell::Cell(double x, double y, double radius, short cellType, class randomGen * 
 double Cell::computeJKRPotential(double h, int type) {
 
     /* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */
-    static constexpr double A[3] = {30.0, 15.0, 20.0};
-    static constexpr double B[3] = {11.0, 4.50, 7.00};
+    static double A[3] = {30.0, 15.0, 20.0};
+    static double B[3] = {11.0, 4.50, 7.00};
 
     double h34 = pow(h, 0.75);
     double h32 = h34 * h34;
