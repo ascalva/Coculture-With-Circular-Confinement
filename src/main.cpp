@@ -17,9 +17,12 @@ int main( void ) {
     FILE * fp1 = fopen("out1","w");
     Simulation coCulture(fp1);
 
+#ifndef GROW
     coCulture.populate();
     coCulture.grow();
-
+#else
+    //other way to populate
+#endif
     coCulture.run();
 
     fclose(fp1);

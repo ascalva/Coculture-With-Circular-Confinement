@@ -84,8 +84,9 @@ public:
 #define TMAX 2000.0
 #define RATIO 1.0 //Ratio between healthy and unhealthy
 
-#define SMALL_RADIUS 0.001 //"Infinitesimal" size
-#define GROWTH_RATE 0.001
+#define SMALL_RADIUS 0.01 //"Infinitesimal" size
+#define GROWTH_RATE 0.01
+#define FINAL_RADIUS 1
 
 #define SEED1 -8838317
 #define SEED2 -1872371

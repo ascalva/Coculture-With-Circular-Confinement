@@ -20,10 +20,14 @@ Simulation::Simulation(FILE * fp1)
     this->randomGen = new class randomGen((long) SEED1, (long) SEED2);
 }
 
-void Simulation::grow() { ///TODO: fix
+void Simulation::grow() {
     vector<Cell>::iterator it;
-    for(it = this->population.begin(); it != this->population.end(); ++it) {
-        it->modGrowth( GROWTH_RATE );
+    double currRadius = SMALL_RADIUS;
+
+    while( currRadius < FINAL_RADIUS ) {
+        for (it = this->population.begin(); it != this->population.end(); ++it) {
+            it->modGrowth(GROWTH_RATE);
+        } currRadius += GROWTH_RATE;
     }
 }
 
@@ -32,12 +36,11 @@ void Simulation::populate() {
     double x, y;
     int cellNum;
 
-//    randomGen::instance()->use(0);
     for( cellNum = 0; cellNum < this->totalCells; cellNum++ ) {
         x = this->radius * this->randomGen->use(0);
         y = this->radius * this->randomGen->use(0);
 
-        //Randonly make x and/or why negative
+        //Randomly make x and/or why negative
         switch( rand() % 4 ) {
             case 1:
                 x *= -1;
