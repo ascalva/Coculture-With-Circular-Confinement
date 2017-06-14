@@ -499,7 +499,7 @@
       <workItem from="1497284643313" duration="9243000" />
       <workItem from="1497369957931" duration="10503000" />
       <workItem from="1497392829299" duration="423000" />
-      <workItem from="1497461442496" duration="2841000" />
+      <workItem from="1497461442496" duration="2942000" />
     </task>
     <task id="LOCAL-00001" summary="Added">
       <created>1496783072522</created>
@@ -662,11 +662,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497466465065</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Updated README">
+      <created>1497466511458</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1497466511458</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79932000" />
+    <option name="totallyTimeSpent" value="80033000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -730,7 +737,8 @@
     <MESSAGE value="Tweaked grow()" />
     <MESSAGE value="Added a few compiler flags" />
     <MESSAGE value="Updated README and fixed a few bugs with the computeForce() method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated README and fixed a few bugs with the computeForce() method" />
+    <MESSAGE value="Updated README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
