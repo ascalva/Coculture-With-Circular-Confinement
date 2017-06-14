@@ -2,7 +2,7 @@ CC=gcc
 CXX=g++
 RM=rm -f
 CXXFLAGS=-Wall -Wextra -pedantic -std=c++14 -O3 -DCMD_OUT
-LDLIBS=libc++
+LDLIBS=libc++  ### -stdlib=libc++
 
 CPPFILES=$(shell find . -name "*.cpp")
 OBJS=$(patsubst %.cpp, %.o, $(CPPFILES))
