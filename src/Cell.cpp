@@ -35,6 +35,10 @@ double Cell::computeJKRPotential(double h, int type) {
 
 void Cell::computeForce(class Cell neighbor) {
 
+    if( (this->positionX + this->positionY) == (neighbor.positionX + neighbor.positionY) ) {
+        return;
+    }
+
     double cost = cos(this->angle);
     double sint = sin(this->angle);
 

@@ -104,7 +104,7 @@ public:
 };
 
 #define V0 0.4
-#define RC 1.0;
+#define RC 1.0; ///update
 #define RCSQ RC * RC
 #define DCOEF_ANG 0.005;       //angular diffusion coefficient
 

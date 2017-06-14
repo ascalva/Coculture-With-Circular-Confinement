@@ -88,7 +88,7 @@ void Simulation::run() {
             i->move( DT, this->radius );
             cell = i->getValues();
 #ifndef CMD_OUT
-            fprintf(fp1, "%4d %e %5e %5e %5d\n",
+            fprintf(fp1, "%2d %e   %5e   %5e   %5d\n",
                     ++curr,
                     std::get<0>(cell),
                     std::get<1>(cell),
