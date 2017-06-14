@@ -1,4 +1,4 @@
-Coculture-With-Circular-Confinement
+Coculture With Circular Confinement
 ===================================
 
 **Author**: Alberto Serrano

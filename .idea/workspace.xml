@@ -14,9 +14,6 @@
     <list default="true" id="b8c77b0e-61f6-40c9-aaf3-f123876630d8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Cell.h" afterPath="$PROJECT_DIR$/include/Cell.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cell.cpp" afterPath="$PROJECT_DIR$/src/Cell.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Simulation.cpp" afterPath="$PROJECT_DIR$/src/Simulation.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +39,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -171,6 +168,7 @@
         <option value="$PROJECT_DIR$/include/Cell.h" />
         <option value="$PROJECT_DIR$/src/Simulation.cpp" />
         <option value="$PROJECT_DIR$/src/Cell.cpp" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -501,7 +499,7 @@
       <workItem from="1497284643313" duration="9243000" />
       <workItem from="1497369957931" duration="10503000" />
       <workItem from="1497392829299" duration="423000" />
-      <workItem from="1497461442496" duration="2753000" />
+      <workItem from="1497461442496" duration="2841000" />
     </task>
     <task id="LOCAL-00001" summary="Added">
       <created>1496783072522</created>
@@ -657,11 +655,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497392963529</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Updated README and fixed a few bugs with the computeForce() method">
+      <created>1497466465065</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1497466465065</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79844000" />
+    <option name="totallyTimeSpent" value="79932000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -724,7 +729,8 @@
     <MESSAGE value="Deleted computeDistance() and integrated its computation into computeForce()" />
     <MESSAGE value="Tweaked grow()" />
     <MESSAGE value="Added a few compiler flags" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a few compiler flags" />
+    <MESSAGE value="Updated README and fixed a few bugs with the computeForce() method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README and fixed a few bugs with the computeForce() method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1033,8 +1039,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
           <folding />
         </state>
       </provider>
