@@ -10,7 +10,7 @@ randomGen::randomGen(long seed1, long seed2)
         : seed(seed1),
           seed1(seed2) {}
 
-double randomGen::use(int seedNum) {
+double randomGen::use(uint16_t seedNum) {
     if( !seedNum ) {
         return ran2( &this->seed );
     } else {

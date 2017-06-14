@@ -22,6 +22,7 @@ Simulation::Simulation(FILE * fp1)
 
 void Simulation::grow() {
     vector<Cell>::iterator it;
+    vector<Cell>::iterator it2;
     double currRadius = SMALL_RADIUS;
 
     while( currRadius < FINAL_RADIUS ) {
@@ -37,8 +38,8 @@ void Simulation::populate() {
     int cellNum;
 
     for( cellNum = 0; cellNum < this->totalCells; cellNum++ ) {
-        x = this->radius * this->randomGen->use(0);
-        y = this->radius * this->randomGen->use(0);
+        x = this->radius * this->randomGen->use(0x0000);
+        y = this->radius * this->randomGen->use(0x0000);
 
         //Randomly make x and/or why negative
         switch( rand() % 4 ) {

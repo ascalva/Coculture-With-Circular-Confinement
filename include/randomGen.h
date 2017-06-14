@@ -8,6 +8,8 @@
 #ifndef COCULTURE_RANDOMGEN_H
 #define COCULTURE_RANDOMGEN_H
 
+#include <cstdint>
+
 class randomGen {
 
 private:
@@ -29,7 +31,7 @@ public:
 
     randomGen(long seed1 = (long) 0, long seed2 = (long) 0);
 
-    double use(int seed);
+    double use(uint16_t seed);
 };
 
 #define IM1 2147483563

@@ -58,7 +58,7 @@ private:
      * Abstract Method
      * Calculates the angle of a cell (somewhat randomly)
      */
-    double computeAngle(short idum);
+    double computeAngle(uint16_t idum);
 
 public:
 

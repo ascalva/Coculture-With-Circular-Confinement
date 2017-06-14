@@ -15,7 +15,7 @@ Cell::Cell(double x, double y, double radius, short cellType, class randomGen * 
           randomGen(ran),
           cellType(cellType)
 {
-    this->angle = 2.0 * M_PI * (0.5 - this->randomGen->use(0)); //Random initial angle
+    this->angle = 2.0 * M_PI * (0.5 - this->randomGen->use(0x0000)); //Random initial angle
 
     this->forceX = 0.0;
     this->forceY = 0.0;
@@ -73,7 +73,7 @@ void Cell::move(double dt, float R) {
     this->positionY = this->positionY + dyt;
 
     double dcoefAngle = DCOEF_ANG;
-    this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(0); //facang * random noise
+    this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(0x0000); //facang * random noise
 
     bool xSign = this->positionX >= 0;
     bool ySign = this->positionY >= 0;
@@ -107,7 +107,7 @@ std::tuple<double, double, double>Cell::getValues() {
     return std::make_tuple(this->positionX, this->positionY, this->angle);
 }
 
-double Cell::computeAngle(short idum) {
+double Cell::computeAngle(uint16_t idum) {
     static int iset = 0;
     static double gset;
     double fac,rsq,v1,v2;
@@ -116,7 +116,7 @@ double Cell::computeAngle(short idum) {
         do {
             v1 = 2.0 * this->randomGen->use(idum) - 1.0;
             v2 = 2.0 * this->randomGen->use(idum) - 1.0;
-            rsq=v1*v1+v2*v2;
+            rsq= (v1 * v1) + (v2 * v2);
         } while( rsq >= 1.0 || rsq == 0.0 );
 
         fac = sqrt(-2.0*log(rsq)/rsq);
