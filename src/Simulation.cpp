@@ -33,11 +33,18 @@ void Simulation::grow() {
 }
 
 void Simulation::populate() {
+
+#ifdef GROW
+    double cellRad = SMALL_RADIUS;
+#else
+    double cellRad = FINAL_RADIUS;
+#endif
+
     Cell * temp;
     double x, y;
-    int cellNum;
+    int cellNum = 0;
 
-    for( cellNum = 0; cellNum < this->totalCells; cellNum++ ) {
+    while( cellNum < this->totalCells ) {
         x = this->radius * this->randomGen->use(0x0000);
         y = this->radius * this->randomGen->use(0x0000);
 
@@ -60,14 +67,36 @@ void Simulation::populate() {
                 break;
         }
 
-        if( cellNum < this->healthyCells ) {
-            temp = new Cell(x, y, SMALL_RADIUS, 0, this->randomGen);
-            this->population.push_back(*temp);
-        } else {
-            temp = new Cell(x, y, SMALL_RADIUS, 1, this->randomGen);
-            this->population.push_back(*temp);
+#ifndef GROW
+        if( checkNeighbors(x, y) ) {
+#endif
+            if (cellNum < this->healthyCells) {
+                temp = new Cell(x, y, cellRad, 0, this->randomGen);
+                this->population.push_back(*temp);
+            } else {
+                temp = new Cell(x, y, cellRad, 1, this->randomGen);
+                this->population.push_back(*temp);
+            }
+            cellNum++;
+#ifndef GROW
         }
+#endif
     }
+}
+
+bool Simulation::checkNeighbors(double x, double y) {
+    vector<Cell>::iterator it;
+    for( it = this->population.begin(); it != this->population.end(); ++it ) {
+        std::tuple<double, double, double> cell = it->getValues();
+        double dx = x - std::get<0>(cell);
+        double dy = y - std::get<1>(cell);
+        double drsq = (dx * dx) + (dy * dy);
+        double dr = sqrt(drsq);
+
+        if( dr < 0.85) {///temp condition
+            return false;
+        }
+    } return true;
 }
 
 void Simulation::run() {

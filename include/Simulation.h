@@ -51,6 +51,8 @@ private:
 
     class randomGen * randomGen = nullptr;
 
+    bool checkNeighbors(double x, double y);
+
 
 public:
 
@@ -86,7 +88,7 @@ public:
 
 #define SMALL_RADIUS 0.01 //"Infinitesimal" size
 #define GROWTH_RATE 0.01
-#define FINAL_RADIUS 1
+#define FINAL_RADIUS 0.5
 
 #define SEED1 -8838317
 #define SEED2 -1872371

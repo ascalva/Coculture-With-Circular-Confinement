@@ -24,7 +24,9 @@ int main( void ) {
     Simulation coCulture(fp1);
 
     coCulture.populate();
+#ifdef GROW
     coCulture.grow();
+#endif
 
     coCulture.run();
 
