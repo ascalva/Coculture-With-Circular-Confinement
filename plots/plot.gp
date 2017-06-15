@@ -8,16 +8,16 @@ set term wxt
 #set term xterm #on lenovo
 
 # set   autoscale
-# unset log
-# unset label
+unset log
+unset label
 # set xtic auto
 # set ytic auto
 # set key top left
 
 # change plot labels
 set title "Cocultures"
-set xlabel "something you measured (units go here)"
-set ylabel "something else you measured (units go here)"
+# set xlabel "something you measured (units go here)"
+# set ylabel "something else you measured (units go here)"
 # set key 0.01,100
 # set arrow from 0.0028,250 to 0.003,280
 
@@ -32,8 +32,8 @@ set style fill transparent solid 0.5 noborder
 set style circle radius 0.5
 #plot "coculture.dat" i 0 using 2:3 with circles lc rgb "green"
 
-plot "coculture.dat" i 0 u 2:3 every ::0::72 with circles lc rgb "green", \
-     "coculture.dat" i 0 u 2:3 every ::73::144 with circles lc rgb "red"
+plot filename i inst u 2:3 every ::0::72 with circles lc rgb "green", \
+     filename i inst u 2:3 every ::73::144 with circles lc rgb "red"
 
 set term jpeg
 set output 'coculture.jpg'

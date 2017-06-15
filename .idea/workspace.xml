@@ -12,8 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8c77b0e-61f6-40c9-aaf3-f123876630d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plots/plot.gp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plots/plot.gp" afterPath="$PROJECT_DIR$/plots/plot.gp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,8 +81,8 @@
       <file leaf-file-name="Simulation.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Simulation.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+            <state relative-caret-position="315">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#843#873#0" expanded="true" />
                 <element signature="e#3285#3493#0" expanded="true" />
@@ -277,6 +277,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/AlbertoSerrano/Documents/college/courses/y3summer/code/coculture/Simulation.cpp" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -517,7 +518,7 @@
       <workItem from="1497392829299" duration="423000" />
       <workItem from="1497461442496" duration="6402000" />
       <workItem from="1497546054119" duration="5275000" />
-      <workItem from="1497563747232" duration="32000" />
+      <workItem from="1497563747232" duration="481000" />
     </task>
     <task id="LOCAL-00001" summary="Added">
       <created>1496783072522</created>
@@ -743,11 +744,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497552070751</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added a gnuplot script to display particles at a particular instance in time">
+      <created>1497563824435</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1497563824435</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88800000" />
+    <option name="totallyTimeSpent" value="89249000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -760,8 +768,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="0" width="1070" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23249027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23249027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -789,7 +798,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added more documentation to Simulation.h" />
     <MESSAGE value="Added more documentation to Cell.h" />
     <MESSAGE value="Further implementation of the Cell superclass" />
     <MESSAGE value="Implemented the move() method within the Cell superclass instead declaring it as an abstract class" />
@@ -814,7 +822,8 @@
     <MESSAGE value="Minor updated to makefile and README" />
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="Changed how cells are spawned, not 'grown' anymore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed how cells are spawned, not 'grown' anymore" />
+    <MESSAGE value="Added a gnuplot script to display particles at a particular instance in time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a gnuplot script to display particles at a particular instance in time" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1111,8 +1120,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Simulation.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#843#873#0" expanded="true" />
             <element signature="e#3285#3493#0" expanded="true" />
