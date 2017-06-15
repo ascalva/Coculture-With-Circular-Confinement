@@ -6,4 +6,5 @@ echo Plotting frame $INST
 
 gnuplot -e "inst=$INST" -e "filename='$FILENAME'" plot.gp
 
-open coculture.jpg
+# 'open' command specific to OSX
+open *.jpg
