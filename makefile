@@ -16,4 +16,5 @@ clean:
 	    $(RM) $(OBJS)
 
 cleanjunk:
-		$(RM) 1.out ./plots/*.jpg ./*.dat
+		$(RM) 1.out ./*.dat
+		$(RM) -r ./plots/out/
