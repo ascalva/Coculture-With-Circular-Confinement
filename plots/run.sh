@@ -1,10 +1,12 @@
 #!/bin/bash
 
-INST=0
 FILENAME=../coculture.dat
 echo Plotting frame $INST
 
-gnuplot -e "inst=$INST" -e "filename='$FILENAME'" plot.gp
+if [ "$#" -ne 3 ]; then
+    OUTPUT=$2
+else
+    OUTPUT="coculture.jpg"
+fi
 
-# 'open' command specific to OSX
-open *.jpg
+gnuplot -e "inst=$1" -e "filename='$FILENAME'" -e "outfile='$OUTPUT'" plot.gp
