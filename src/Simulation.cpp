@@ -45,8 +45,11 @@ void Simulation::populate() {
     int cellNum = 0;
 
     while( cellNum < this->totalCells ) {
-        x = this->radius * this->randomGen->use(0x0000);
-        y = this->radius * this->randomGen->use(0x0000);
+
+        do {
+            x = this->radius * this->randomGen->use(0x0000);
+            y = this->radius * this->randomGen->use(0x0000);
+        } while( sqrt(x*x + y*y) >= this->radius);
 
         //Randomly make x and/or why negative
         switch( rand() % 4 ) {
