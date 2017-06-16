@@ -10,6 +10,10 @@ set term wxt
 # set   autoscale
 unset log
 unset label
+unset border
+unset xtics
+unset ytics
+
 set title "Cocultures"
 set xr [-10.0:10.0]
 set yr [-10.0:10.0]

@@ -13,7 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b8c77b0e-61f6-40c9-aaf3-f123876630d8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plots/run.sh" afterPath="$PROJECT_DIR$/plots/run.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plots/plot.gp" afterPath="$PROJECT_DIR$/plots/plot.gp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,8 +81,8 @@
       <file leaf-file-name="Simulation.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Simulation.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+            <state relative-caret-position="405">
+              <caret line="27" column="35" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
               <folding>
                 <element signature="e#843#873#0" expanded="true" />
                 <element signature="e#3358#3566#0" expanded="true" />
@@ -531,7 +531,7 @@
       <workItem from="1497563747232" duration="985000" />
       <workItem from="1497568882932" duration="9000" />
       <workItem from="1497584873119" duration="370000" />
-      <workItem from="1497636217334" duration="2131000" />
+      <workItem from="1497636217334" duration="2360000" />
     </task>
     <task id="LOCAL-00001" summary="Added">
       <created>1496783072522</created>
@@ -813,11 +813,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497639410259</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Updated shell script">
+      <created>1497642828595</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1497642828595</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92263000" />
+    <option name="totallyTimeSpent" value="92492000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -860,7 +867,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added ability to output data to external output" />
     <MESSAGE value="Few bug fixes to Simulation class" />
     <MESSAGE value="Added elastic walls and updated populate() method to include negative numbers" />
     <MESSAGE value="Removed the Healthy and Unhealthy subclasses and made the Cell class non-abstract. Also reorganized file structure." />
@@ -885,7 +891,8 @@
     <MESSAGE value="Few corrections to make it easier to run" />
     <MESSAGE value="Fixed issue where populate() would place cells with respect to a square (instead of a circle)" />
     <MESSAGE value="Updated gnuplot and shell scripts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated gnuplot and shell scripts" />
+    <MESSAGE value="Updated shell script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated shell script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1183,8 +1190,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Simulation.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+        <state relative-caret-position="405">
+          <caret line="27" column="35" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
           <folding>
             <element signature="e#843#873#0" expanded="true" />
             <element signature="e#3358#3566#0" expanded="true" />
