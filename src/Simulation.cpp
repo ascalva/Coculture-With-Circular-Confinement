@@ -55,21 +55,18 @@ void Simulation::populate() {
 
         if( checkNeighbors(x, y) ) {
             if (cellNum < this->healthyCells) {
-                temp = new Cell(x, y, cellRad, 0, this->randomGen);
-                this->population.push_back(*temp);
+                this->population.push_back(new Cell(x,y,cellRad,0,this->randomGen));
             } else {
-                temp = new Cell(x, y, cellRad, 1, this->randomGen);
-                this->population.push_back(*temp);
-            }
-            cellNum++;
+                this->population.push_back(new Cell(x,y,cellRad,1,this->randomGen));
+            } cellNum++;
         }
     }
 }
 
 bool Simulation::checkNeighbors(double x, double y) {
-    vector<Cell>::iterator it;
+    vector<Cell*>::iterator it;
     for( it = this->population.begin(); it != this->population.end(); ++it ) {
-        std::tuple<double, double, double> cell = it->getValues();
+        std::tuple<double, double, double> cell = (*it)->getValues();
         double dx = x - std::get<0>(cell);
         double dy = y - std::get<1>(cell);
         /*opt*/
@@ -85,30 +82,31 @@ bool Simulation::checkNeighbors(double x, double y) {
 }
 
 void Simulation::run() {
-    vector<Cell>::iterator i;
-    vector<Cell>::iterator j;
+    vector<Cell*>::iterator i;
+    vector<Cell*>::iterator j;
     std::tuple<double, double, double> cell;
+    double t = 0.0;
 
-    while(double t = 0.0 < TMAX) {
+    while(t < TMAX) {
         t += DT;
 
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             for(j = this->population.begin(); j != this->population.end(); ++j) {
-                i->computeForce( *j );
+                (*i)->computeForce( *j );
             }
         }
 
         int curr = 0;
         for(i = this->population.begin(); i != this->population.end(); ++i) {
-            i->move( DT, this->radius );
-            cell = i->getValues();
+            (*i)->move( DT, this->radius );
+            cell = (*i)->getValues();
 
             printf( "%4d %e %5e %5e %5d\n",
                     ++curr,
                     std::get<0>(cell),
                     std::get<1>(cell),
                     std::get<2>(cell),
-                    i->type());
+                    (*i)->type());
         } printf("\n\n");
     }
 }

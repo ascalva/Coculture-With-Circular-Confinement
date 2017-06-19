@@ -33,9 +33,9 @@ double Cell::computeJKRPotential(double h, int type) {
     return (A[type] * h32) - (B[type] * h34);
 }
 
-void Cell::computeForce(class Cell neighbor) {
+void Cell::computeForce(class Cell * neighbor) {
 
-    if( (this->positionX + this->positionY) == (neighbor.positionX + neighbor.positionY) )
+    if( (this->positionX + this->positionY) == (neighbor->positionX + neighbor->positionY) )
         return;
 
     double cost = cos(this->angle);
@@ -44,23 +44,23 @@ void Cell::computeForce(class Cell neighbor) {
     this->forceX = V0 * cost;
     this->forceY = V0 * sint;
 
-    double dx = this->positionX - neighbor.positionX;
-    double dy = this->positionY - neighbor.positionY;
+    double dx = this->positionX - neighbor->positionX;
+    double dy = this->positionY - neighbor->positionY;
     double drsq = (dx * dx) + (dy * dy);
 
     double rc = RC;
     if( drsq < (rc * rc) ) {
         double dr = sqrt(drsq);
-        double fval = computeJKRPotential(1.0 - dr, this->type() + neighbor.type()) / dr;
+        double fval = computeJKRPotential(1.0 - dr, this->type() + neighbor->type()) / dr;
 
-        double fxtmp = fval * (dx);
-        double fytmp = fval * (dy);
+        double fxtmp = fval * dx;
+        double fytmp = fval * dy;
 
         this->forceX += fxtmp;
         this->forceY += fytmp;
 
-        neighbor.forceX += -fxtmp;
-        neighbor.forceY += -fytmp;
+        neighbor->forceX += -fxtmp;
+        neighbor->forceY += -fytmp;
     }
 }
 

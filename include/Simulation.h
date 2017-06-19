@@ -46,7 +46,7 @@ private:
     /**
      * Container for all cell objects
      */
-    vector<Cell> population;
+    vector<Cell*> population;
 
     class randomGen * randomGen = nullptr;
 

@@ -72,7 +72,7 @@ public:
      *
      * @param neighbor
      */
-    void computeForce(class Cell neighbor);
+    void computeForce(class Cell * neighbor);
 
     /**
      * Using the force exerted on the cell, calculate the future position and move the
@@ -98,7 +98,6 @@ public:
 
 #define V0 0.4
 #define RC 1.0; ///update
-#define RCSQ RC * RC
-#define DCOEF_ANG 0.005;       //angular diffusion coefficient
+#define DCOEF_ANG 0.005;  //angular diffusion coefficient
 
 #endif //COCULTURE_CELL_H
