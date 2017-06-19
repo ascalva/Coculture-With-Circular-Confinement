@@ -24,8 +24,8 @@ Cell::Cell(double x, double y, double radius, short cellType, class randomGen * 
 double Cell::computeJKRPotential(double h, int type) {
 
     /* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */
-    static double A[3] = {30.0, 15.0, 20.0};
-    static double B[3] = {11.0, 4.50, 7.00};
+    double A[3] = {30.0, 15.0, 20.0};
+    double B[3] = {11.0, 4.5, 7.0};
 
     double h34 = pow(h, 0.75);
     double h32 = h34 * h34;
@@ -35,9 +35,8 @@ double Cell::computeJKRPotential(double h, int type) {
 
 void Cell::computeForce(class Cell neighbor) {
 
-    if( (this->positionX + this->positionY) == (neighbor.positionX + neighbor.positionY) ) {
+    if( (this->positionX + this->positionY) == (neighbor.positionX + neighbor.positionY) )
         return;
-    }
 
     double cost = cos(this->angle);
     double sint = sin(this->angle);
@@ -50,7 +49,7 @@ void Cell::computeForce(class Cell neighbor) {
     double drsq = (dx * dx) + (dy * dy);
 
     double rc = RC;
-    if( drsq >= 0 && drsq < (rc * rc) ) {
+    if( drsq < (rc * rc) ) {
         double dr = sqrt(drsq);
         double fval = computeJKRPotential(1.0 - dr, this->type() + neighbor.type()) / dr;
 

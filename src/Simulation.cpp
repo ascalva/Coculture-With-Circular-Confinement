@@ -73,10 +73,13 @@ bool Simulation::checkNeighbors(double x, double y) {
         std::tuple<double, double, double> cell = it->getValues();
         double dx = x - std::get<0>(cell);
         double dy = y - std::get<1>(cell);
-        double drsq = (dx * dx) + (dy * dy);
-        double dr = sqrt(drsq);
+        /*opt*/
+        dx = dx - (2.0 * this->radius * (int)(dx/(this->radius)));
+        dy = dy - (2.0 * this->radius * (int)(dy/(this->radius)));
 
-        if( dr < 0.85) {///temp condition
+        double drsq = (dx * dx) + (dy * dy);
+
+        if( drsq < 1.0) {///might be off
             return false;
         }
     } return true;
