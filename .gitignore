@@ -5,3 +5,9 @@ CMakeLists.txt
 
 # Ignore commit log
 log.txt
+
+# Ignore helper scripts for the sole purpose of organization
+move.sh
+
+# Ignore executable and outputs
+coculture
