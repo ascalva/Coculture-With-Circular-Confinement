@@ -65,14 +65,6 @@ public:
     void populate();
 
     /**
-     * Grow all cells within the confinement to their proper sizes (using proper interaction
-     *     properties). Purpose of "growing" cells is to be able to place them randomly within
-     *     the confined area without overlap; method of placement is prone to changed if better
-     *     method arises.
-     */
-    void grow();
-
-    /**
      * Run the simulation (once all cells are fully "grown") for a period of TMAX, letting
      *     time increments be done by DT
      */

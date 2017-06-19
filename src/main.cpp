@@ -22,12 +22,7 @@ int main( void ) {
 #endif
 
     Simulation coCulture(fp1);
-
     coCulture.populate();
-#ifdef GROW
-    coCulture.grow();
-#endif
-
     coCulture.run();
 
 #ifndef CMD_OUT

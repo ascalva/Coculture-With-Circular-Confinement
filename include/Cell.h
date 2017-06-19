@@ -88,13 +88,6 @@ public:
     short type();
 
     /**
-     * Change the radius of the cell by 'rate' amount
-     *
-     * @param rate
-     */
-    void modGrowth(double rate);
-
-    /**
      * Getter for position and angle
      *
      * @return a tuple with the x, y positions and and cell's angle

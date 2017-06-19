@@ -20,25 +20,9 @@ Simulation::Simulation(FILE * fp1)
     this->randomGen = new class randomGen((long) SEED1, (long) SEED2);
 }
 
-void Simulation::grow() {
-    vector<Cell>::iterator it;
-    vector<Cell>::iterator it2;
-    double currRadius = SMALL_RADIUS;
-
-    while( currRadius < FINAL_RADIUS ) {
-        for (it = this->population.begin(); it != this->population.end(); ++it) {
-            it->modGrowth(GROWTH_RATE);
-        } currRadius += GROWTH_RATE;
-    }
-}
-
 void Simulation::populate() {
 
-#ifdef GROW
-    double cellRad = SMALL_RADIUS;
-#else
     double cellRad = FINAL_RADIUS;
-#endif
 
     Cell * temp;
     double x, y;
@@ -70,9 +54,7 @@ void Simulation::populate() {
                 break;
         }
 
-#ifndef GROW
         if( checkNeighbors(x, y) ) {
-#endif
             if (cellNum < this->healthyCells) {
                 temp = new Cell(x, y, cellRad, 0, this->randomGen);
                 this->population.push_back(*temp);
@@ -81,9 +63,7 @@ void Simulation::populate() {
                 this->population.push_back(*temp);
             }
             cellNum++;
-#ifndef GROW
         }
-#endif
     }
 }
 

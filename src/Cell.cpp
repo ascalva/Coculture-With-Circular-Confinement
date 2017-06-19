@@ -69,8 +69,8 @@ void Cell::move(double dt, float R) {
 
     double dxt = this->forceX * dt;
     double dyt = this->forceY * dt;
-    this->positionX = this->positionX + dxt;
-    this->positionY = this->positionY + dyt;
+    this->positionX += dxt;
+    this->positionY += dyt;
 
     double dcoefAngle = DCOEF_ANG;
     this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(0x0000); //facang * random noise
@@ -95,10 +95,6 @@ void Cell::move(double dt, float R) {
             this->positionY += dyt;
         }
     }
-}
-
-void Cell::modGrowth(double rate) {
-    this->radius += rate;
 }
 
 ///Note to later me: Maybe implement cells with a specific ID, better track particular cells
