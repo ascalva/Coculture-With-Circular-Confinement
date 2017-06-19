@@ -9,9 +9,8 @@
 #include "../include/Simulation.h"
 
 
-Simulation::Simulation(FILE * fp1)
-        : fp1(fp1),
-          radius(R)
+Simulation::Simulation()
+        : radius(R)
 {
     this->totalCells = (int) ((PHI * 4 * R * R) / M_PI);
     this->unealthyCells = (int) (this->totalCells / (1.0 + RATIO));
@@ -103,28 +102,13 @@ void Simulation::run() {
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             i->move( DT, this->radius );
             cell = i->getValues();
-#ifndef CMD_OUT
-            fprintf(fp1, "%2d %e   %5e   %5e   %5d\n",
-                    ++curr,
-                    std::get<0>(cell),
-                    std::get<1>(cell),
-                    std::get<2>(cell),
-                    i->type());
-#else
+
             printf( "%4d %e %5e %5e %5d\n",
                     ++curr,
                     std::get<0>(cell),
                     std::get<1>(cell),
                     std::get<2>(cell),
                     i->type());
-#endif
-        }
-
-#ifndef CMD_OUT
-        fprintf(fp1, "\n\n");
-#else
-        printf("\n\n");
-#endif
-
+        } printf("\n\n");
     }
 }

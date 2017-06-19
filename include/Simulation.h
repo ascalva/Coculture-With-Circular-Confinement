@@ -22,7 +22,6 @@ using namespace std;
 class Simulation {
 
 private:
-    FILE * fp1;
 
     /**
      * Radius of circular confinement
@@ -56,7 +55,7 @@ private:
 
 public:
 
-    Simulation(FILE * fp1);
+    Simulation();
 
     /**
      * Populate circular confinement with infinitesimally sized cells, this makes sure that

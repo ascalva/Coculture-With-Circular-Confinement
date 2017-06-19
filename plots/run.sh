@@ -7,19 +7,30 @@
 # purpose: Simple shell script to assist with Gnuplot plots and convert
 #          them into a gif
 
+# Handle names of input/output files
 FILENAME=../coculture.dat
 OUTFILE=co
 EXT=.jpg
 DIRECTORY=./out
-FRAMES=1000
+
+FRAMES=0
+CURR=1000
+MAX=10000
 
 # Function to open gif file
 ql () { qlmanage -p "$*" >& /dev/null; }
 
-while [ $FRAMES -le 9900 ]; do
-    gnuplot -e "inst=$FRAMES" -e "filename='$FILENAME'" -e "outfile='$OUTFILE$FRAMES$EXT'" plot.gp
-    echo Plotting frame $INST in $OUTFILE$FRAMES$EXT
+# Optional program argument replaces the default MAX value
+if [ "$#" -eq 1 ]; then
+    MAX=$(($(($1-1))*100))
+fi
+
+# Execute Gnuplot script MAX/100 number of times
+while [ $FRAMES -le $MAX ]; do
+    gnuplot -e "inst=$FRAMES" -e "filename='$FILENAME'" -e "outfile='$OUTFILE$CURR$EXT'" plot.gp
+    echo Plotting frame $FRAMES in $OUTFILE$CURR$EXT
     FRAMES=$((FRAMES+100))
+    CURR=$((CURR+1))
 done
 
 # Check if the specified directory exists
