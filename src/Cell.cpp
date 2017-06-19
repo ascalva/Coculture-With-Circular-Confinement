@@ -79,7 +79,7 @@ void Cell::move(double dt, float R) {
     bool ySign = this->positionY >= 0;
 
     //Elastic walls
-    if( (this->positionX * this->positionX) > (R * R) ) {
+    if( (this->positionX * this->positionX) + (this->positionY * this->positionY) >= (R * R) ) {
         this->angle += M_PI;
         if( xSign && ySign ) {
             this->positionX -= dxt;
