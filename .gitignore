@@ -1,6 +1,7 @@
 # Ignore makefile from CLion
 cmake-build-debug
 CMakeLists.txt
+.idea
 
 # Ignore commit log
 log.txt
