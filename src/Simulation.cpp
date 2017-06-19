@@ -23,7 +23,6 @@ void Simulation::populate() {
 
     double cellRad = FINAL_RADIUS;
 
-    Cell * temp;
     double x, y;
     int cellNum = 0;
 
@@ -75,7 +74,7 @@ bool Simulation::checkNeighbors(double x, double y) {
 
         double drsq = (dx * dx) + (dy * dy);
 
-        if( drsq < 1.0) {///might be off
+        if( drsq < 1.0) {
             return false;
         }
     } return true;

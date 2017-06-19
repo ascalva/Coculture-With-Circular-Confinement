@@ -7,7 +7,7 @@
 set term wxt
 #set term xterm #on lenovo
 
-# set   autoscale
+#set autoscale
 unset log
 unset label
 unset border
@@ -16,15 +16,13 @@ unset ytics
 
 set title "Cocultures"
 set xr [-14.0:14.0]
-set yr [-14.0:14.0]
+set yr [-10.0:10.0]
 
 set style fill transparent solid 0.5 noborder
 set style circle radius 0.5
 
 r = 9
 set object 1 circle back at 0,0 size r fs empty border 4
-# Define circle to which the data should be limited
-#circle(x,y,z) = sqrt(x**2+y**2)>r ? NaN : z
 
 if (!exists("filename")) filename='coculture.dat'
 if (!exists("inst")) inst = 0

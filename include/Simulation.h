@@ -74,7 +74,7 @@ public:
 #define R 9
 #define PHI 1.4
 #define DT 0.001
-#define TMAX 2000.0
+#define TMAX 20.0
 #define RATIO 1.0 //Ratio between healthy and unhealthy
 
 #define FINAL_RADIUS 1.0
