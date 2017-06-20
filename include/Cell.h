@@ -33,7 +33,7 @@ private:
     double angle;
 
     /**
-     * Radius of cell (prone to change during "growth")
+     * Radius of cell
      */
     double radius;
 
