@@ -74,7 +74,7 @@ bool Simulation::checkNeighbors(double x, double y) {
 
         double drsq = (dx * dx) + (dy * dy);
 
-        if( drsq < 0.8) {
+        if( drsq < INIT_MIN_SPACING) {
             return false;
         }
     } return true;
@@ -85,6 +85,7 @@ void Simulation::run() {
     vector<Cell*>::iterator j;
     std::tuple<double, double, double> cell;
     double t = 0.0;
+    int print = 0;
 
     while(t < TMAX) {
         t += DT;
@@ -98,14 +99,16 @@ void Simulation::run() {
         int curr = 0;
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             (*i)->move( DT, this->radius );
-            cell = (*i)->getValues();
 
-            printf( "%4d %e %5e %5e %5d\n",
-                    ++curr,
-                    std::get<0>(cell),
-                    std::get<1>(cell),
-                    std::get<2>(cell),
-                    (*i)->type());
-        } printf("\n\n");
+            if( !(print%100) ) {
+                cell = (*i)->getValues();
+                printf("%4d %e %5e %5e %5d\n",
+                       ++curr,
+                       std::get<0>(cell),
+                       std::get<1>(cell),
+                       std::get<2>(cell),
+                       (*i)->type());
+            }
+        } if( !(print++%100) ) printf("\n\n");
     }
 }

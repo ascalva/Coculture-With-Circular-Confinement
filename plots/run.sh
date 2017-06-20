@@ -15,21 +15,21 @@ DIRECTORY=./out
 
 FRAMES=0
 CURR=1000
-MAX=10000
+MAX=1000
 
 # Function to open gif file
 ql () { qlmanage -p "$*" >& /dev/null; }
 
 # Optional program argument replaces the default MAX value
 if [ "$#" -eq 1 ]; then
-    MAX=$(($(($1-1))*100))
+    MAX=$(($(($1-1))*1))
 fi
 
 # Execute Gnuplot script MAX/100 number of times
 while [ $FRAMES -le $MAX ]; do
     gnuplot -e "inst=$FRAMES" -e "filename='$FILENAME'" -e "outfile='$OUTFILE$CURR$EXT'" plot.gp
     echo Plotting frame $FRAMES in $OUTFILE$CURR$EXT
-    FRAMES=$((FRAMES+100))
+    FRAMES=$((FRAMES+1))
     CURR=$((CURR+1))
 done
 

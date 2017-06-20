@@ -72,10 +72,11 @@ public:
 };
 
 #define R 9
-#define PHI 0.7
+#define PHI 0.81
 #define DT 0.001
-#define TMAX 200.0
+#define TMAX 20.0
 #define RATIO 1.0 //Ratio between healthy and unhealthy
+#define INIT_MIN_SPACING 0.7
 
 #define FINAL_RADIUS 0.5
 
