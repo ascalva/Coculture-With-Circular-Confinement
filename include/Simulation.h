@@ -72,12 +72,12 @@ public:
 };
 
 #define R 9
-#define PHI 1.4
+#define PHI 0.7
 #define DT 0.001
-#define TMAX 20.0
+#define TMAX 200.0
 #define RATIO 1.0 //Ratio between healthy and unhealthy
 
-#define FINAL_RADIUS 1.0
+#define FINAL_RADIUS 0.5
 
 #define SEED1 -8838317
 #define SEED2 -1872371

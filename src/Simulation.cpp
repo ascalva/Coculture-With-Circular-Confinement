@@ -12,7 +12,8 @@
 Simulation::Simulation()
         : radius(R)
 {
-    this->totalCells = (int) ((PHI * 4 * R * R) / M_PI);
+//    this->totalCells = (int) ((PHI * 4 * R * R) / M_PI);
+    this->totalCells = (int) ((PHI * this->radius * this->radius) / (FINAL_RADIUS * FINAL_RADIUS));
     this->unealthyCells = (int) (this->totalCells / (1.0 + RATIO));
     this->healthyCells = (int) (this->unealthyCells * RATIO);
 
@@ -33,7 +34,7 @@ void Simulation::populate() {
             y = this->radius * this->randomGen->use(0x0000);
         } while( sqrt(x*x + y*y) >= this->radius);
 
-        //Randomly make x and/or why negative
+        //Randomly make x and/or y negative
         switch( rand() % 4 ) {
             case 1:
                 x *= -1;
@@ -54,9 +55,9 @@ void Simulation::populate() {
 
         if( checkNeighbors(x, y) ) {
             if (cellNum < this->healthyCells) {
-                this->population.push_back(new Cell(x,y,cellRad,0,this->randomGen));
+                this->population.push_back(new Cell(x, y, cellRad, 0, this->randomGen));
             } else {
-                this->population.push_back(new Cell(x,y,cellRad,1,this->randomGen));
+                this->population.push_back(new Cell(x, y, cellRad, 1, this->randomGen));
             } cellNum++;
         }
     }
@@ -74,7 +75,7 @@ bool Simulation::checkNeighbors(double x, double y) {
 
         double drsq = (dx * dx) + (dy * dy);
 
-        if( drsq < 1.0) {
+        if( drsq < 0.8) {
             return false;
         }
     } return true;

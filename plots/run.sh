@@ -43,7 +43,7 @@ fi
 mv ./*.jpg $DIRECTORY
 
 # Convert images into a gif (requires ImageMagick)
-convert -delay 10 -loop 10 $DIRECTORY/*.jpg ./coculture.gif
+convert -delay 8 -loop 10 $DIRECTORY/*.jpg ./coculture.gif
 
 # Open gif
 ql ./coculture.gif
