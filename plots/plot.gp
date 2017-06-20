@@ -30,5 +30,5 @@ if (!exists("inst")) inst = 0
 set term jpeg
 set output outfile
 
-plot filename i inst u 2:3 every ::0::113 with circles lc rgb "green" title "Healthy Cell", \
-     filename i inst u 2:3 every ::114::226 with circles lc rgb "red" title "Cancer Cell" 
+plot filename i inst u 2:($5 == 0 ? $3 : 1/0) with circles lc rgb "green" title "Healthy Cell", \
+     filename i inst u 2:($5 == 1 ? $3 : 1/0) with circles lc rgb "red" title "Cancer Cell" 

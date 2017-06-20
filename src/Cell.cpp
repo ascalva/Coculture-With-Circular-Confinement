@@ -52,7 +52,7 @@ void Cell::computeForce(class Cell * neighbor) {
     if( drsq < (rc * rc) ) {
         double dr = sqrt(drsq);
         ///TODO: Check if it should be '1.0-dr' and '2.0-dr'
-        double fval = computeJKRPotential(1.0 - dr, this->type() + neighbor->type()) / dr;
+        double fval = computeJKRPotential((this->radius * 2) - dr, this->type() + neighbor->type()) / dr;
 
         double fxtmp = fval * dx;
         double fytmp = fval * dy;

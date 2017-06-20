@@ -12,7 +12,6 @@
 Simulation::Simulation()
         : radius(R)
 {
-//    this->totalCells = (int) ((PHI * 4 * R * R) / M_PI);
     this->totalCells = (int) ((PHI * this->radius * this->radius) / (FINAL_RADIUS * FINAL_RADIUS));
     this->unealthyCells = (int) (this->totalCells / (1.0 + RATIO));
     this->healthyCells = (int) (this->unealthyCells * RATIO);
