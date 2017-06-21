@@ -72,9 +72,9 @@ public:
 };
 
 #define R 9
-#define PHI 0.81
+#define PHI 0.81 //Packing fraction
 #define DT 0.001
-#define TMAX 20.0
+#define TMAX 50.0
 #define RATIO 1.0 //Ratio between healthy and unhealthy
 #define INIT_MIN_SPACING 0.7
 

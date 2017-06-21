@@ -11,11 +11,11 @@ set term wxt
 unset log
 unset label
 unset border
-unset xtics
-unset ytics
+#unset xtics
+#unset ytics
 
 set title "Cocultures"
-set xr [-14.0:14.0]
+set xr [-15.0:15.0]
 set yr [-10.0:10.0]
 
 set style fill transparent solid 0.7 border lt 3

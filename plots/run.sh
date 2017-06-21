@@ -15,7 +15,7 @@ DIRECTORY=./out
 
 FRAMES=0
 CURR=1000
-MAX=1000
+MAX=100
 
 # Function to open gif file
 ql () { qlmanage -p "$*" >& /dev/null; }

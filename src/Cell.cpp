@@ -51,7 +51,6 @@ void Cell::computeForce(class Cell * neighbor) {
     double rc = RC;
     if( drsq < (rc * rc) ) {
         double dr = sqrt(drsq);
-        ///TODO: Check if it should be '1.0-dr' and '2.0-dr'
         double fval = computeJKRPotential((this->radius * 2) - dr, this->type() + neighbor->type()) / dr;
 
         double fxtmp = fval * dx;
@@ -69,36 +68,38 @@ void Cell::move(double dt, float R) {
 
     double dxt = this->forceX * dt;
     double dyt = this->forceY * dt;
+
+    double lastx = this->positionX;
+    double lasty = this->positionY;
+
     this->positionX += dxt;
     this->positionY += dyt;
 
     double dcoefAngle = DCOEF_ANG;
     this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(0x0000); //facang * random noise
 
-    bool xSign = this->positionX >= 0;
-    bool ySign = this->positionY >= 0;
+    //Elastic Walls
+    double radsq = (this->positionX * this->positionX) + (this->positionY * this->positionY);
+    if( radsq > ((R - this->radius) * (R - this->radius)) ) {
+        double exitx = (lastx + this->positionX) / 2;
+        double exity = (lasty + this->positionY) / 2;
 
-    //Elastic walls
-    double rsq = (this->positionX * this->positionX) + (this->positionY * this->positionY);
-    if( sqrt(rsq) >= R ) {
-        this->angle += M_PI;
-        if( xSign && ySign ) {
-            this->positionX -= dxt;
-            this->positionY -= dyt;
-        } if( xSign && !ySign ) {
-            this->positionX -= dxt;
-            this->positionY += dyt;
-        } if( !xSign && ySign ) {
-            this->positionX += dxt;
-            this->positionX -= dyt;
-        } if( !xSign && !ySign ) {
-            this->positionX += dxt;
-            this->positionY += dyt;
-        }
+        double exitRad = sqrt((exitx * exitx) + (exity * exity));
+        exitx *= (R - this->radius) / exitRad;
+        exity *= (R - this->radius) / exitRad;
+        this->positionX = exitx;
+        this->positionY = exity;
+
+        double twiceProjFactor = 2.0 * ((exitx * this->forceX) + (exity * this->forceY)) / ((R - this->radius)*(R - this->radius));
+        this->forceX -= (twiceProjFactor * exitx);
+        this->forceY -= (twiceProjFactor * exity);
+
+        this->positionX += this->forceX * dt;
+        this->positionY += this->forceY * dt;
+        this->angle -= atan(this->forceY/this->forceX);
     }
 }
 
-///Note to later me: Maybe implement cells with a specific ID, better track particular cells
 std::tuple<double, double, double>Cell::getValues() {
 
     return std::make_tuple(this->positionX, this->positionY, this->angle);
