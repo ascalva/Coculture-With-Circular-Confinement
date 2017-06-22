@@ -11,8 +11,8 @@ set term wxt
 unset log
 unset label
 unset border
-#unset xtics
-#unset ytics
+unset xtics
+unset ytics
 
 set title "Cocultures"
 set xr [-15.0:15.0]
@@ -27,7 +27,7 @@ set object 1 circle back at 0,0 size r fs empty border 4
 if (!exists("filename")) filename='coculture.dat'
 if (!exists("inst")) inst = 0
 
-set term jpeg
+set term png
 set output outfile
 
 plot filename i inst u 2:($5 == 0 ? $3 : 1/0) with circles lc rgb "green" title "Healthy Cell", \

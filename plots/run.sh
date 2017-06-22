@@ -10,26 +10,26 @@
 # Handle names of input/output files
 FILENAME=../coculture.dat
 OUTFILE=co
-EXT=.jpg
+EXT=.png
 DIRECTORY=./out
 
 FRAMES=0
 CURR=1000
-MAX=100
+MAX=1000
 
 # Function to open gif file
 ql () { qlmanage -p "$*" >& /dev/null; }
 
 # Optional program argument replaces the default MAX value
 if [ "$#" -eq 1 ]; then
-    MAX=$(($(($1-1))*1))
+    MAX=$(($(($1-1))*10))
 fi
 
 # Execute Gnuplot script MAX/100 number of times
 while [ $FRAMES -le $MAX ]; do
     gnuplot -e "inst=$FRAMES" -e "filename='$FILENAME'" -e "outfile='$OUTFILE$CURR$EXT'" plot.gp
     echo Plotting frame $FRAMES in $OUTFILE$CURR$EXT
-    FRAMES=$((FRAMES+1))
+    FRAMES=$((FRAMES+10))
     CURR=$((CURR+1))
 done
 
@@ -40,10 +40,11 @@ else
     mkdir $DIRECTORY
 fi
 
-mv ./*.jpg $DIRECTORY
+mv ./*.png $DIRECTORY
 
 # Convert images into a gif (requires ImageMagick)
-convert -delay 8 -loop 10 $DIRECTORY/*.jpg ./coculture.gif
+echo Converting images into a gif...
+convert -delay 9 -loop 0 $DIRECTORY/*.png ./coculture.gif
 
 # Open gif
 ql ./coculture.gif

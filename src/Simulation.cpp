@@ -74,7 +74,7 @@ bool Simulation::checkNeighbors(double x, double y) {
 
         double drsq = (dx * dx) + (dy * dy);
 
-        if( drsq < INIT_MIN_SPACING) {
+        if( drsq < (INIT_MIN_SPACING * INIT_MIN_SPACING) ) {
             return false;
         }
     } return true;
