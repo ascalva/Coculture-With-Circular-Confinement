@@ -1,11 +1,15 @@
-
+#
+# filename: MSQ.gp
+#
+# @author: Alberto Serrano
+#
 set term wxt #must disable on lenovo laptop
 
-set   autoscale                        # scale axes automatically
-set log                              # remove any log-scaling
-unset label                            # remove any previous labels
-set xtic auto                          # set xtics automatically
-set ytic auto                          # set ytics automatically
+set autoscale
+set log
+unset label
+set xtic auto
+set ytic auto
 set key top left
 
 set title "Mean Squared Displacements"

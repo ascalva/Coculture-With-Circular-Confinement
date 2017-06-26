@@ -3,8 +3,10 @@
  *
  * @author: Alberto Serrano
  *
- * purpose: Simulate the interactions between two different types of cells
- *          (cancerous vs healthy)
+ * purpose: Simulate the interactions between two different types of cells by creating an instance of the
+ *          Simulation class and running a couple of its public methods.
+ *
+ *          TODO: Add ability to change program parameters through different command line arguments
  */
 
 #include <iostream>

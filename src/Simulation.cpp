@@ -3,7 +3,8 @@
  *
  * @author: Alberto Serrano
  *
- * purpose:
+ * purpose: Creates and stores all instances of the Cell class and extract all relevant information
+ *          about their interaction and stores in different data files.
  */
 
 #include "../include/Simulation.h"

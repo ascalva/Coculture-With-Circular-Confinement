@@ -3,7 +3,7 @@
  *
  * @author: Alberto Serrano
  *
- * purpose: Abstract superclass for different types of cells (subclasses)
+ * purpose: Stores all relevant information for a given cell within the simulation
  */
 
 #include "../include/Cell.h"
