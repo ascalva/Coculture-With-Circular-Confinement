@@ -100,6 +100,11 @@ public:
      */
     std::tuple<double, double, double>getValues();
 
+    /**
+     * Computes the squared displacement of the cell (from initial position to current position)
+     *
+     * @return
+     */
     double computeSquaredDisplacement();
 
 };

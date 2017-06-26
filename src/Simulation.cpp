@@ -152,17 +152,3 @@ void Simulation::printMeta() {
          << endl;
     meta.close();
 }
-
-/**
- * Add regular output data file:
- *     Cell data: x,y,theta,type
- *
- * Add metadata file:
- *     Ratio 1:1
- *     Number of cells
- *     Packing fraction
- *     Time passed
- *     Cell radius
- *     Confinement radius
- *     Mean squared displacement (maybe in different file)
- */
