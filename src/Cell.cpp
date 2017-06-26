@@ -11,6 +11,8 @@
 Cell::Cell(double x, double y, double radius, short cellType, class randomGen * ran)
         : positionX(x),
           positionY(y),
+          initX(x),
+          initY(y),
           radius(radius),
           randomGen(ran),
           cellType(cellType)
@@ -129,4 +131,8 @@ double Cell::computeAngle(uint16_t idum) {
 
 short Cell::type() {
     return this->cellType;
+}
+
+double Cell::computeSquaredDisplacement() {
+    return pow(this->positionX - this->initX, 2) + pow(this->positionY - this->initY, 2);
 }

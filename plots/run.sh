@@ -15,21 +15,25 @@ DIRECTORY=./out
 
 FRAMES=0
 CURR=1000
-MAX=1000
+MAX=500
 
 # Function to open gif file
 ql () { qlmanage -p "$*" >& /dev/null; }
 
 # Optional program argument replaces the default MAX value
 if [ "$#" -eq 1 ]; then
-    MAX=$(($(($1-1))*10))
+    MAX=$(($(($1-1))*1))
 fi
 
-# Execute Gnuplot script MAX/100 number of times
+# Execute Gnuplot scripts MAX/100 number of times
+if [ -f ../meanSqrtDisp.dat ]; then
+    gnuplot MSQ.gp
+fi
+
 while [ $FRAMES -le $MAX ]; do
     gnuplot -e "inst=$FRAMES" -e "filename='$FILENAME'" -e "outfile='$OUTFILE$CURR$EXT'" plot.gp
     echo Plotting frame $FRAMES in $OUTFILE$CURR$EXT
-    FRAMES=$((FRAMES+10))
+    FRAMES=$((FRAMES+1))
     CURR=$((CURR+1))
 done
 
@@ -40,11 +44,11 @@ else
     mkdir $DIRECTORY
 fi
 
-mv ./*.png $DIRECTORY
+mv ./co*.png $DIRECTORY
 
 # Convert images into a gif (requires ImageMagick)
 echo Converting images into a gif...
-convert -delay 9 -loop 0 $DIRECTORY/*.png ./coculture.gif
+convert -delay 6 -loop 0 $DIRECTORY/co*.png ./coculture.gif
 
 # Open gif
 ql ./coculture.gif

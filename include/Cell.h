@@ -23,6 +23,11 @@ private:
     double positionX, positionY;
 
     /**
+     * Initial position of particle (never updated)
+     */
+    const double initX, initY;
+
+    /**
      * Forces along the X and Y axis of the cell
      */
     double forceX, forceY;
@@ -53,6 +58,7 @@ private:
      * @return the potential
      */
     double computeJKRPotential(double h, int type);
+
 
     /**
      * Abstract Method
@@ -94,10 +100,12 @@ public:
      */
     std::tuple<double, double, double>getValues();
 
+    double computeSquaredDisplacement();
+
 };
 
 #define V0 0.4
-#define RC 1.0; ///update
+#define RC 1.0;
 #define DCOEF_ANG 0.005;  //angular diffusion coefficient
 
 #endif //COCULTURE_CELL_H

@@ -17,6 +17,7 @@ Simulation::Simulation()
     this->healthyCells = (int) (this->unealthyCells * RATIO);
 
     this->randomGen = new class randomGen((long) SEED1, (long) SEED2);
+
 }
 
 void Simulation::populate() {
@@ -84,6 +85,11 @@ void Simulation::run() {
     vector<Cell*>::iterator i;
     vector<Cell*>::iterator j;
     std::tuple<double, double, double> cell;
+
+    printMeta();
+    ofstream data("./coculture.dat");
+    ofstream meanSquaredDisplacement("./meanSqrtDisp.dat");
+
     double t = 0.0;
     int print = 0;
 
@@ -97,18 +103,66 @@ void Simulation::run() {
         }
 
         int curr = 0;
+        double sqrtDispSumHealthy = 0;
+        double sqrtDispSumCancer = 0;
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             (*i)->move( DT, this->radius );
 
             if( !(print%100) ) {
+                switch( (*i)->type() ) {
+                    case 0:
+                        sqrtDispSumHealthy += (*i)->computeSquaredDisplacement();
+                        break;
+                    default:
+                        sqrtDispSumCancer += (*i)->computeSquaredDisplacement();
+                        break;
+                }
+
                 cell = (*i)->getValues();
-                printf("%4d %e %5e %5e %5d\n",
-                       ++curr,
-                       std::get<0>(cell),
-                       std::get<1>(cell),
-                       std::get<2>(cell),
-                       (*i)->type());
+                data.precision(12);
+                data << ++curr << " "
+                     << std::get<0>(cell) << " "
+                     << std::get<1>(cell) << " "
+                     << std::get<2>(cell) << " "
+                     << (*i)->type() << " "
+                     << endl;
             }
-        } if( !(print++%100) ) printf("\n\n");
+        } if( !(print++%100) ) {
+            sqrtDispSumHealthy /= this->healthyCells;
+            sqrtDispSumCancer /= this->unealthyCells;
+            meanSquaredDisplacement << t << " "
+                                    << sqrtDispSumHealthy << " "
+                                    << sqrtDispSumCancer << endl;
+
+            data << "\n\n";
+        }
     }
+    data.close();
+    meanSquaredDisplacement.close();
 }
+
+void Simulation::printMeta() {
+
+    ofstream meta("./meta.dat");
+    meta << "Ratio\t" << "1:1" << "\n"
+         << "CellNumber\t" << this->totalCells << "\n"
+         << "PackingFraction\t" << PHI << "\n"
+         << "ConfinementRadius\t" << this->radius << "\n"
+         << "CellRadius\t" << FINAL_RADIUS
+         << endl;
+    meta.close();
+}
+
+/**
+ * Add regular output data file:
+ *     Cell data: x,y,theta,type
+ *
+ * Add metadata file:
+ *     Ratio 1:1
+ *     Number of cells
+ *     Packing fraction
+ *     Time passed
+ *     Cell radius
+ *     Confinement radius
+ *     Mean squared displacement (maybe in different file)
+ */

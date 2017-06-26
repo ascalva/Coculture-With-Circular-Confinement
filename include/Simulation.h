@@ -13,6 +13,8 @@
 #include <cstdio>
 #include <cmath>
 #include <vector>
+#include <fstream>
+#include <iomanip>
 
 #include "Cell.h"
 #include "randomGen.h"
@@ -52,6 +54,8 @@ private:
 
     bool checkNeighbors(double x, double y);
 
+    void printMeta();
+
 
 public:
 
@@ -72,9 +76,9 @@ public:
 };
 
 #define R 9
-#define PHI 0.96 //Packing fraction
+#define PHI 0.94 //Packing fraction
 #define DT 0.001
-#define TMAX 1000.0
+#define TMAX 100.0
 #define RATIO 1.0 //Ratio between healthy and unhealthy
 #define INIT_MIN_SPACING 0.77
 
