@@ -13,11 +13,13 @@
 #include <cstdio>
 #include <cmath>
 #include <vector>
+#include <iostream>
 #include <fstream>
 #include <iomanip>
 
 #include "Cell.h"
 #include "randomGen.h"
+#include "defaults.h"
 
 using namespace std;
 
@@ -75,7 +77,7 @@ private:
 public:
 
     //Constructor
-    Simulation();
+    Simulation(float R = 9);
 
     /**
      * Populate circular confinement with infinitesimally sized cells, this makes sure that
@@ -105,17 +107,5 @@ public:
     void run();
 
 };
-
-#define R 9
-#define PHI 0.94 //Packing fraction
-#define DT 0.001
-#define TMAX 100.0
-#define RATIO 1.0 //Ratio between healthy and unhealthy
-#define INIT_MIN_SPACING 0.77
-
-#define FINAL_RADIUS 0.5
-
-#define SEED1 -8838317
-#define SEED2 -1872371
 
 #endif //COCULTURE_SIMULATION_H

@@ -18,11 +18,8 @@ set ylabel "msd ({/Symbol m}m^2)"
 
 # set xr [-10^(-2):10^2]
 #set yr [-50:550]
+set term png
+set output "MSQ.png"
 
 plot "../meanSqrtDisp.dat" using 1:2 lc rgb "green" title 'Healthy', \
      "../meanSqrtDisp.dat" using 1:3 lc rgb "red" title "Cancer"
-
-set term png
-set output "MSQ.png"
-replot
-set term wxt

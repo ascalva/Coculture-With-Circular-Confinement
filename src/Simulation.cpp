@@ -9,24 +9,23 @@
 
 #include "../include/Simulation.h"
 
-
-Simulation::Simulation()
+Simulation::Simulation(float R)
         : radius(R)
 {
-    this->totalCells = (int) ((PHI * this->radius * this->radius) / (FINAL_RADIUS * FINAL_RADIUS));
+    this->totalCells = (int) ((PHI * this->radius * this->radius) / (cellRadius * cellRadius));
     this->unealthyCells = (int) (this->totalCells / (1.0 + RATIO));
     this->healthyCells = (int) (this->unealthyCells * RATIO);
 
-    this->randomGen = new class randomGen((long) SEED1, (long) SEED2);
+    this->randomGen = new class randomGen( SEED1, SEED2);
 
 }
 
 void Simulation::populate() {
 
-    double cellRad = FINAL_RADIUS;
-
+    double cellRad = cellRadius;
     double x, y;
     int cellNum = 0;
+    std::cout << "Starting to populate.." << endl;
 
     while( cellNum < this->totalCells ) {
 
@@ -61,7 +60,7 @@ void Simulation::populate() {
                 this->population.push_back(new Cell(x, y, cellRad, 1, this->randomGen));
             } cellNum++;
         }
-    }
+    } std::cout << "Population completed.." << endl;
 }
 
 bool Simulation::checkNeighbors(double x, double y) {
@@ -87,6 +86,7 @@ void Simulation::run() {
     vector<Cell*>::iterator j;
     std::tuple<double, double, double> cell;
 
+    std::cout << "Now starting simulation.." << endl;
     printMeta();
     ofstream data("./coculture.dat");
     ofstream meanSquaredDisplacement("./meanSqrtDisp.dat");
@@ -118,7 +118,6 @@ void Simulation::run() {
                         sqrtDispSumCancer += (*i)->computeSquaredDisplacement();
                         break;
                 }
-
                 cell = (*i)->getValues();
                 data.precision(12);
                 data << ++curr << " "
@@ -149,7 +148,7 @@ void Simulation::printMeta() {
          << "CellNumber\t" << this->totalCells << "\n"
          << "PackingFraction\t" << PHI << "\n"
          << "ConfinementRadius\t" << this->radius << "\n"
-         << "CellRadius\t" << FINAL_RADIUS
+         << "CellRadius\t" << cellRadius
          << endl;
     meta.close();
 }

@@ -11,7 +11,9 @@
 
 #include <tuple>
 #include <math.h>
+
 #include "randomGen.h"
+#include "defaults.h"
 
 class Cell {
 
@@ -108,9 +110,5 @@ public:
     double computeSquaredDisplacement();
 
 };
-
-#define V0 0.4
-#define RC 1.0;
-#define DCOEF_ANG 0.005;  //angular diffusion coefficient
 
 #endif //COCULTURE_CELL_H

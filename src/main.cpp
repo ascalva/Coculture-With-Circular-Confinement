@@ -10,12 +10,34 @@
  */
 
 #include <iostream>
+#include <getopt.h>
 
 #include "../include/Simulation.h"
 
 using namespace std;
 
-int main( void ) {
+//int Simulation::R;
+int main( int argc, char * argv[] ) {
+
+    int opt;
+    int tmpsize = 0;
+
+    while( (opt = getopt( argc, argv, "Hv:p:R:") ) != -1 ) {
+        switch( opt ) {
+            case 'H':
+//                displayHelp();
+                return 0;
+            case 'v':
+//                tmpsize = (double) strtol(optarg, NULL, 10 );
+
+                break;
+            case 'p':
+
+                break;
+            case 'R':
+                tmpsize = (int) strtol(optarg, NULL, 10 );
+        }
+    }
 
     Simulation coCulture;
     coCulture.populate();
