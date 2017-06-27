@@ -9,14 +9,14 @@
 
 #include "../include/Simulation.h"
 
-Simulation::Simulation(float R)
-        : radius(R)
+Simulation::Simulation()
+        : radius(confinementRadius)
 {
     this->totalCells = (int) ((PHI * this->radius * this->radius) / (cellRadius * cellRadius));
     this->unealthyCells = (int) (this->totalCells / (1.0 + RATIO));
     this->healthyCells = (int) (this->unealthyCells * RATIO);
 
-    this->randomGen = new class randomGen( SEED1, SEED2);
+    this->randomGen = new class randomGen( SEED1, SEED2 );
 
 }
 

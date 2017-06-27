@@ -8,6 +8,8 @@
 
 #include "../include/defaults.h"
 
+int confinementRadius = 9;
+
 float cellRadius = 0.5;
 
 double DT = 0.001;

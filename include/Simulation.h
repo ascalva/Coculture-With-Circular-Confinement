@@ -77,7 +77,7 @@ private:
 public:
 
     //Constructor
-    Simulation(float R = 9);
+    Simulation();
 
     /**
      * Populate circular confinement with infinitesimally sized cells, this makes sure that
