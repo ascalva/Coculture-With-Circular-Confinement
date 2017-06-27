@@ -26,8 +26,10 @@ Cell::Cell(double x, double y, double radius, short cellType, class randomGen * 
 double Cell::computeJKRPotential(double h, int type) {
 
     /* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */
-    double A[3] = {30.0, 15.0, 20.0};
-    double B[3] = {11.0, 4.5, 7.0};
+    double A[3] = {30.0, 15.0, 20.0}; //Original
+    double B[3] = {11.0, 4.5, 7.0}; //Original
+
+//    double A[3] = {40.0, 25.0, 30.0};
 
     double h34 = pow(h, 0.75);
     double h32 = h34 * h34;

@@ -109,15 +109,15 @@ void Simulation::run() {
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             (*i)->move( DT, this->radius );
 
+            switch( (*i)->type() ) {
+                case 0:
+                    sqrtDispSumHealthy += (*i)->computeSquaredDisplacement();
+                    break;
+                default:
+                    sqrtDispSumCancer += (*i)->computeSquaredDisplacement();
+                    break;
+            }
             if( !(print%100) ) {
-                switch( (*i)->type() ) {
-                    case 0:
-                        sqrtDispSumHealthy += (*i)->computeSquaredDisplacement();
-                        break;
-                    default:
-                        sqrtDispSumCancer += (*i)->computeSquaredDisplacement();
-                        break;
-                }
                 cell = (*i)->getValues();
                 data.precision(12);
                 data << ++curr << " "
@@ -127,15 +127,12 @@ void Simulation::run() {
                      << (*i)->type() << " "
                      << endl;
             }
-        } if( !(print++%100) ) {
-            sqrtDispSumHealthy /= this->healthyCells;
-            sqrtDispSumCancer /= this->unealthyCells;
-            meanSquaredDisplacement << t << " "
-                                    << sqrtDispSumHealthy << " "
-                                    << sqrtDispSumCancer << endl;
-
-            data << "\n\n";
-        }
+        } if( !(print++%100) ) data << "\n\n";
+        sqrtDispSumHealthy /= this->healthyCells;
+        sqrtDispSumCancer /= this->unealthyCells;
+        meanSquaredDisplacement << t << " "
+                                << sqrtDispSumHealthy << " "
+                                << sqrtDispSumCancer << endl;
     }
     data.close();
     meanSquaredDisplacement.close();

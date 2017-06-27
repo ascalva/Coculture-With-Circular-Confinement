@@ -37,6 +37,8 @@ while [ $FRAMES -le $MAX ]; do
     CURR=$((CURR+1))
 done
 
+ffmpeg -start_number 1000 -i 'co%4d.png' -c:v libx264 -pix_fmt yuv420p out.mp4
+
 # Check if the specified directory exists
 if [ -d "$DIRECTORY" ]; then
     rm -r $DIRECTORY/*
@@ -48,8 +50,9 @@ mv ./co*.png $DIRECTORY
 
 # Convert images into a gif (requires ImageMagick)
 echo Converting images into a gif...
-convert -delay 6 -loop 0 $DIRECTORY/co*.png ./coculture.gif
-#ffmpeg -start_number 837 -i '%3d_1.png' -c:v libx264 -pix_fmt yuv420p out.mp4
+#convert -delay 6 -loop 0 $DIRECTORY/co*.png ./coculture.gif
+#ffmpeg -start_number 1000 -i 'co%4d.png' -c:v libx264 -pix_fmt yuv420p out.mp4
 
 # Open gif
-ql ./coculture.gif
+#ql ./coculture.gif
+ql ./out.mp4
