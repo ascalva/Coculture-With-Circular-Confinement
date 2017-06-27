@@ -5,6 +5,7 @@
 #
 
 set term wxt
+#set terminal postscript enhanced
 #set term xterm #on lenovo
 
 #set autoscale

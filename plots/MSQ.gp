@@ -4,6 +4,8 @@
 # @author: Alberto Serrano
 #
 set term wxt #must disable on lenovo laptop
+#set terminal postscript enhanced
+#set terminal postscript eps enhanced 
 
 set autoscale
 set log

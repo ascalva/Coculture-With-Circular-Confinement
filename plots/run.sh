@@ -49,6 +49,7 @@ mv ./co*.png $DIRECTORY
 # Convert images into a gif (requires ImageMagick)
 echo Converting images into a gif...
 convert -delay 6 -loop 0 $DIRECTORY/co*.png ./coculture.gif
+#ffmpeg -start_number 837 -i '%3d_1.png' -c:v libx264 -pix_fmt yuv420p out.mp4
 
 # Open gif
 ql ./coculture.gif

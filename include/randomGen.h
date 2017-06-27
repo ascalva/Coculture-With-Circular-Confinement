@@ -14,9 +14,9 @@ class randomGen {
 
 private:
 
-    long seed;// = -8838317;
+    long seed;
 
-    long seed1;// = -1872371;
+    long seed1;
 
     /**
      * Compute a 'random' between 0 and 1
