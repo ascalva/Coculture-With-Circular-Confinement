@@ -14,7 +14,7 @@ float cellRadius = 0.5;
 
 double DT = 0.001;
 
-double TMAX = 300.0;
+double TMAX = 500.0;
 
 double PHI = 0.965;
 

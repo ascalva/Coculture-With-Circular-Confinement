@@ -115,6 +115,7 @@ void Simulation::run() {
                     break;
                 default:
                     sqrtDispSumCancer += (*i)->computeSquaredDisplacement();
+//                    sqrtDispSumHealthy += (*i)->computeSquaredDisplacement(); ///temp
                     break;
             }
             if( !(print%100) ) {
@@ -128,8 +129,10 @@ void Simulation::run() {
                      << endl;
             }
         } if( !(print++%100) ) data << "\n\n";
+
         sqrtDispSumHealthy /= this->healthyCells;
         sqrtDispSumCancer /= this->unealthyCells;
+//        sqrtDispSumHealthy /= this->totalCells; ///tmp
         meanSquaredDisplacement << t << " "
                                 << sqrtDispSumHealthy << " "
                                 << sqrtDispSumCancer << endl;

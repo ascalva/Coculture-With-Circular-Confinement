@@ -48,6 +48,7 @@ void Cell::computeForce(class Cell * neighbor) {
     this->forceX = V0 * cost;
     this->forceY = V0 * sint;
 
+#ifndef NO_FORCE
     double dx = this->positionX - neighbor->positionX;
     double dy = this->positionY - neighbor->positionY;
     double drsq = (dx * dx) + (dy * dy);
@@ -66,6 +67,7 @@ void Cell::computeForce(class Cell * neighbor) {
         neighbor->forceX += -fxtmp;
         neighbor->forceY += -fytmp;
     }
+#endif
 }
 
 void Cell::move(double dt, float R) {
@@ -136,5 +138,7 @@ short Cell::type() {
 }
 
 double Cell::computeSquaredDisplacement() {
-    return pow(this->positionX - this->initX, 2) + pow(this->positionY - this->initY, 2);
+//    return pow(this->positionX - this->initX, 2) + pow(this->positionY - this->initY, 2);
+    return pow(sqrt(pow(this->positionX, 2) + pow(this->positionY, 2))
+           - sqrt(pow(this->initX, 2) + pow(this->initY, 2)), 2);
 }
