@@ -16,7 +16,7 @@ double DT = 0.001;
 
 double TMAX = 500.0;
 
-double PHI = 0.965;
+double PHI = 0.905;
 
 float RATIO = 1.0;
 

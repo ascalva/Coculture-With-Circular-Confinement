@@ -7,7 +7,7 @@ set term wxt #must disable on lenovo laptop
 #set terminal postscript enhanced
 #set terminal postscript eps enhanced 
 
-#set autoscale
+set autoscale
 set logscale xy
 unset label
 set xtic auto
@@ -34,8 +34,8 @@ save var 'fit_params'
 
 
 # set xr [-10^(-2):10^2]
-set xr [0.01:100]
-set yr [0.05:100] #was 12
+#set xr [0.01:23]
+#set yr [0.01:20] #was 12
 set term png
 set output "MSQ.png"
 

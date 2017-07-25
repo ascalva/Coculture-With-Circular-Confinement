@@ -74,6 +74,7 @@ void Cell::move(double dt, float R) {
 
     double dxt = this->forceX * dt;
     double dyt = this->forceY * dt;
+//    double sqsq = (dxt * dxt) + (dyt * dyt);
 
     double lastx = this->positionX;
     double lasty = this->positionY;
@@ -85,6 +86,7 @@ void Cell::move(double dt, float R) {
     this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(0x0000); //facang * random noise
 
     //Elastic Walls
+#ifndef WALLS
     double radsq = (this->positionX * this->positionX) + (this->positionY * this->positionY);
     if( radsq > ((R - this->radius) * (R - this->radius)) ) {
         double exitx = (lastx + this->positionX) / 2;
@@ -104,6 +106,7 @@ void Cell::move(double dt, float R) {
         this->positionY += this->forceY * dt;
         this->angle -= atan(this->forceY/this->forceX);
     }
+#endif
 }
 
 std::tuple<double, double, double>Cell::getValues() {
@@ -139,6 +142,9 @@ short Cell::type() {
 
 double Cell::computeSquaredDisplacement() {
 //    return pow(this->positionX - this->initX, 2) + pow(this->positionY - this->initY, 2);
-    return pow(sqrt(pow(this->positionX, 2) + pow(this->positionY, 2))
-           - sqrt(pow(this->initX, 2) + pow(this->initY, 2)), 2);
+//    return pow(sqrt(pow(this->positionX, 2) + pow(this->positionY, 2))
+//           - sqrt(pow(this->initX, 2) + pow(this->initY, 2)), 2);
+    return (this->positionX - this->initX) * (this->positionX - this->initX)
+           + (this->positionY - this->initY) * (this->positionY - this->initY);
+
 }
