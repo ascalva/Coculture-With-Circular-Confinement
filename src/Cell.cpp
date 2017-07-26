@@ -74,7 +74,6 @@ void Cell::move(double dt, float R) {
 
     double dxt = this->forceX * dt;
     double dyt = this->forceY * dt;
-//    double sqsq = (dxt * dxt) + (dyt * dyt);
 
     double lastx = this->positionX;
     double lasty = this->positionY;
@@ -86,7 +85,7 @@ void Cell::move(double dt, float R) {
     this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(0x0000); //facang * random noise
 
     //Elastic Walls
-#ifndef WALLS
+#ifdef WALLS
     double radsq = (this->positionX * this->positionX) + (this->positionY * this->positionY);
     if( radsq > ((R - this->radius) * (R - this->radius)) ) {
         double exitx = (lastx + this->positionX) / 2;
@@ -106,6 +105,27 @@ void Cell::move(double dt, float R) {
         this->positionY += this->forceY * dt;
         this->angle -= atan(this->forceY/this->forceX);
     }
+#else
+    double radsq = (this->positionX * this->positionX) + (this->positionY * this->positionY);
+    if( radsq > ((R) * (R)) ) {
+        double exitx = (lastx + this->positionX) / 2;
+        double exity = (lasty + this->positionY) / 2;
+
+        double exitRad = sqrt((exitx * exitx) + (exity * exity));
+        exitx *= (R) / exitRad;
+        exity *= (R) / exitRad;
+        this->positionX = exitx;
+        this->positionY = exity;
+
+        double twiceProjFactor = 2.0 * ((exitx * this->forceX) + (exity * this->forceY)) / ((R)*(R));
+        this->forceX -= (twiceProjFactor * exitx);
+        this->forceY -= (twiceProjFactor * exity);
+
+        this->positionX += this->forceX * dt;
+        this->positionY += this->forceY * dt;
+        this->angle -= atan(this->forceY/this->forceX);
+    }
+
 #endif
 }
 

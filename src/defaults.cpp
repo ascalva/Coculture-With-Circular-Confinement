@@ -14,7 +14,7 @@ float cellRadius = 0.5;
 
 double DT = 0.001;
 
-double TMAX = 500.0;
+double TMAX = 1000.0;
 
 double PHI = 0.905;
 
@@ -26,7 +26,7 @@ double V0 = 0.4;
 
 double RC = 1.0;
 
-double DCOEF_ANG = 0.005;
+double DCOEF_ANG = 0.05; //0.005
 
 long SEED1 = -8838317;
 
