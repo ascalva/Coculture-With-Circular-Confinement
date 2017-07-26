@@ -85,11 +85,11 @@ void Cell::move(double dt, float R) {
     this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(0x0000); //facang * random noise
 
     //Elastic Walls
-#ifdef WALLS
+#ifdef PADDING
     double radsq = (this->positionX * this->positionX) + (this->positionY * this->positionY);
     if( radsq > ((R - this->radius) * (R - this->radius)) ) {
-        double exitx = (lastx + this->positionX) / 2;
-        double exity = (lasty + this->positionY) / 2;
+        double exitx = ((lastx + this->positionX) / 2) - this->radius;
+        double exity = ((lasty + this->positionY) / 2) - this->radius;
 
         double exitRad = sqrt((exitx * exitx) + (exity * exity));
         exitx *= (R - this->radius) / exitRad;
@@ -117,7 +117,7 @@ void Cell::move(double dt, float R) {
         this->positionX = exitx;
         this->positionY = exity;
 
-        double twiceProjFactor = 2.0 * ((exitx * this->forceX) + (exity * this->forceY)) / ((R)*(R));
+        double twiceProjFactor = 2.0 * ((exitx * this->forceX) + (exity * this->forceY)) / ((R) * (R));
         this->forceX -= (twiceProjFactor * exitx);
         this->forceY -= (twiceProjFactor * exity);
 
@@ -125,7 +125,6 @@ void Cell::move(double dt, float R) {
         this->positionY += this->forceY * dt;
         this->angle -= atan(this->forceY/this->forceX);
     }
-
 #endif
 }
 
@@ -161,9 +160,6 @@ short Cell::type() {
 }
 
 double Cell::computeSquaredDisplacement() {
-//    return pow(this->positionX - this->initX, 2) + pow(this->positionY - this->initY, 2);
-//    return pow(sqrt(pow(this->positionX, 2) + pow(this->positionY, 2))
-//           - sqrt(pow(this->initX, 2) + pow(this->initY, 2)), 2);
     return (this->positionX - this->initX) * (this->positionX - this->initX)
            + (this->positionY - this->initY) * (this->positionY - this->initY);
 

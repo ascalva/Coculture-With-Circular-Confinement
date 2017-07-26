@@ -23,7 +23,7 @@ set yr [-10.0:10.0]
 set style fill transparent solid 0.7 border lt 3
 set style circle radius 0.5
 
-r = 9
+r = 9.5
 set object 1 circle back at 0,0 size r fs empty border 4
 
 if (!exists("filename")) filename='coculture.dat'

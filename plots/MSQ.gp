@@ -41,5 +41,6 @@ set output "MSQ.png"
 plot "../meanSqrtDisp.dat" using 1:2 lc rgb "green" title "Healthy", \
      "../meanSqrtDisp.dat" using 1:3 lc rgb "red" title "Cancer", \
      f(x) title t, \
-     g(x) title g
+     g(x) title g, \
+     81.0 w l
      #(0.4*x)**2 w l lt -1
