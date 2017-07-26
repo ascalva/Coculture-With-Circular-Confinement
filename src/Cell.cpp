@@ -29,8 +29,6 @@ double Cell::computeJKRPotential(double h, int type) {
     double A[3] = {30.0, 15.0, 20.0}; //Original
     double B[3] = {11.0, 4.5, 7.0}; //Original
 
-//    double A[3] = {40.0, 25.0, 30.0};
-
     double h34 = pow(h, 0.75);
     double h32 = h34 * h34;
 

@@ -9,7 +9,6 @@
  */
 
 #include <iostream>
-#include <getopt.h>
 
 #include "../include/Simulation.h"
 #include "../include/defaults.h"
