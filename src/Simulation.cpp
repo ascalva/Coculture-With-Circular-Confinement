@@ -89,7 +89,9 @@ void Simulation::run() {
     std::cout << "Now starting simulation.." << endl;
     printMeta();
     ofstream data("./coculture.dat");
+#ifdef MSD
     ofstream meanSquaredDisplacement("./meanSqrtDisp.dat");
+#endif
 
     double t = 0.0;
     int print = 0;
@@ -103,22 +105,24 @@ void Simulation::run() {
             }
         }
 
-        int curr = 0;
+#ifdef MSD
         double sqrtDispSumHealthy = 0;
         double sqrtDispSumCancer = 0;
+#endif
+        int curr = 0;
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             (*i)->move( DT, this->radius );
-
+#ifdef MSD
             switch( (*i)->type() ) {
                 case 0:
                     sqrtDispSumHealthy += (*i)->computeSquaredDisplacement();
                     break;
                 default:
                     sqrtDispSumCancer += (*i)->computeSquaredDisplacement();
-//                    sqrtDispSumHealthy += (*i)->computeSquaredDisplacement(); ///temp
                     break;
             }
-            if( !(print%100) ) {
+#endif
+            if( !(print % TGAP) ) {
                 cell = (*i)->getValues();
                 data.precision(12);
                 data << ++curr << " "
@@ -128,17 +132,19 @@ void Simulation::run() {
                      << (*i)->type() << " "
                      << endl;
             }
-        } if( !(print++%100) ) data << "\n\n";
-
+        } if( !(print++ % TGAP) ) data << "\n\n";
+#ifdef MSD
         sqrtDispSumHealthy /= this->healthyCells;
         sqrtDispSumCancer /= this->unealthyCells;
-//        sqrtDispSumHealthy /= this->totalCells; ///tmp
         meanSquaredDisplacement << t << " "
                                 << sqrtDispSumHealthy << " "
                                 << sqrtDispSumCancer << endl;
+#endif
     }
     data.close();
+#ifdef MSD
     meanSquaredDisplacement.close();
+#endif
 }
 
 void Simulation::printMeta() {

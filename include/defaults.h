@@ -30,6 +30,11 @@ extern double TMAX;
 extern double DT;
 
 /**
+ * Interval by which program outputs data
+ */
+extern int TGAP;
+
+/**
  * Packing fraction
  */
 extern double PHI;

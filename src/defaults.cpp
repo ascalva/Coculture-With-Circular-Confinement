@@ -14,15 +14,17 @@ float cellRadius = 0.5;
 
 double DT = 0.001;
 
-double TMAX = 1000.0;
+double TMAX = 10000.0;
 
-double PHI = 0.905;
+int TGAP = 1000;
+
+double PHI = 0.965;
 
 float RATIO = 1.0;
 
 double INIT_MIN_SPACING = 0.77;
 
-double V0 = 0.4;
+double V0 = 0.3;
 
 double RC = 1.0;
 
