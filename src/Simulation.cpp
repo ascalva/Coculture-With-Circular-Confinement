@@ -99,6 +99,10 @@ void Simulation::run() {
     while(t < TMAX) {
         t += DT;
 
+//        if( !(print % (TGAP*1000 + 370) )) {
+//            i = this->population.begin();
+//            this->population.push_back( (*i)->divide() );
+//        }
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             for(j = this->population.begin(); j != this->population.end(); ++j) {
                 (*i)->computeForce( *j );

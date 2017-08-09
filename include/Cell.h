@@ -109,6 +109,8 @@ public:
      */
     double computeSquaredDisplacement();
 
+    Cell * divide();
+
 };
 
 #endif //COCULTURE_CELL_H

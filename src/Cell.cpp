@@ -131,6 +131,14 @@ double Cell::computeAngle(uint16_t idum) {
     }
 }
 
+Cell * Cell::divide() {
+    auto * nCell = new Cell(this->positionX, this->positionY, this->radius, this->cellType, this->randomGen);
+    nCell->angle = M_PI - this->angle;
+    this->forceX = 0.0;
+    this->forceY = 0.0;
+    return nCell;
+}
+
 short Cell::type() {
     return this->cellType;
 }
@@ -138,5 +146,4 @@ short Cell::type() {
 double Cell::computeSquaredDisplacement() {
     return (this->positionX - this->initX) * (this->positionX - this->initX)
            + (this->positionY - this->initY) * (this->positionY - this->initY);
-
 }

@@ -16,9 +16,9 @@ double DT = 0.001;
 
 double TMAX = 100000.0;
 
-int TGAP = 1000;
+int TGAP = 100;
 
-double PHI = 0.965;
+double PHI = 0.1;
 
 float RATIO = 1.0;
 
