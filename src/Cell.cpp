@@ -83,27 +83,6 @@ void Cell::move(double dt, float R) {
     this->angle += sqrt(2 * dcoefAngle * dt) * computeAngle(0x0000); //facang * random noise
 
     //Elastic Walls
-#ifdef PADDING
-    double radsq = (this->positionX * this->positionX) + (this->positionY * this->positionY);
-    if( radsq > ((R - this->radius) * (R - this->radius)) ) {
-        double exitx = ((lastx + this->positionX) / 2) - this->radius;
-        double exity = ((lasty + this->positionY) / 2) - this->radius;
-
-        double exitRad = sqrt((exitx * exitx) + (exity * exity));
-        exitx *= (R - this->radius) / exitRad;
-        exity *= (R - this->radius) / exitRad;
-        this->positionX = exitx;
-        this->positionY = exity;
-
-        double twiceProjFactor = 2.0 * ((exitx * this->forceX) + (exity * this->forceY)) / ((R - this->radius)*(R - this->radius));
-        this->forceX -= (twiceProjFactor * exitx);
-        this->forceY -= (twiceProjFactor * exity);
-
-        this->positionX += this->forceX * dt;
-        this->positionY += this->forceY * dt;
-        this->angle -= atan(this->forceY/this->forceX);
-    }
-#else
     double radsq = (this->positionX * this->positionX) + (this->positionY * this->positionY);
     if( radsq > ((R) * (R)) ) {
         double exitx = (lastx + this->positionX) / 2;
@@ -123,7 +102,6 @@ void Cell::move(double dt, float R) {
         this->positionY += this->forceY * dt;
         this->angle -= atan(this->forceY/this->forceX);
     }
-#endif
 }
 
 std::tuple<double, double, double>Cell::getValues() {
