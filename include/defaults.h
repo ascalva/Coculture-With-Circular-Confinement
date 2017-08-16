@@ -61,6 +61,8 @@ extern double RC;
  */
 extern double DCOEF_ANG;
 
+extern int startMSD;
+
 /**
  * Use for the randomGen class to compute random numbers
  */

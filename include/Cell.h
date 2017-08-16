@@ -27,7 +27,7 @@ private:
     /**
      * Initial position of particle (never updated)
      */
-    const double initX, initY;
+    double initX, initY;
 
     /**
      * Forces along the X and Y axis of the cell
@@ -110,6 +110,8 @@ public:
     double computeSquaredDisplacement();
 
     Cell * divide();
+
+    void initMSD();
 
 };
 
