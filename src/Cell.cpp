@@ -130,11 +130,33 @@ double Cell::computeAngle(uint16_t idum) {
     }
 }
 
+///TODO: finish implementation
 Cell * Cell::divide() {
-    auto * nCell = new Cell(this->positionX, this->positionY, this->radius, this->cellType, this->randomGen);
-    nCell->angle = M_PI - this->angle;
-    this->forceX = 0.0;
-    this->forceY = 0.0;
+
+    double distX = 0.7;
+    double distY = 0.7;
+
+    switch( (int) this->angle ) {
+        case 0 ... 89:
+            distX *= -1;
+            distY *= -1;
+            break;
+
+        case 90 ... 179:
+            distY *= -1;
+            break;
+
+        case 270 ... 359:
+            distX *= -1;
+            break;
+
+        default:
+            break;
+    }
+    auto * nCell = new Cell(this->positionX + distX, this->positionY + distY,
+                            this->radius, this->cellType, this->randomGen);
+    nCell->angle = (M_PI + this->angle);
+
     return nCell;
 }
 

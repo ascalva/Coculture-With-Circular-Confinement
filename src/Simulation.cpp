@@ -97,10 +97,10 @@ void Simulation::run() {
     while(t < TMAX) {
         t += DT;
 
-//        if( !(print % (TGAP * 1000) )) {
-//            i = this->population.begin();
-//            this->population.push_back( (*i)->divide() );
-//        }
+        if( !(print % (TGAP * 100) )) {
+            i = this->population.begin();
+            this->population.push_back( (*i)->divide() );
+        }
 
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             for(j = this->population.begin(); j != this->population.end(); ++j) {
@@ -118,7 +118,7 @@ void Simulation::run() {
         int curr = 0;
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             (*i)->move( DT, this->radius );
-            
+
             switch( (*i)->type() ) {
                 case 0:
                     sqrtDispSumHealthy += (*i)->computeSquaredDisplacement();
