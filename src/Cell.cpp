@@ -155,7 +155,7 @@ Cell * Cell::divide() {
     }
     auto * nCell = new Cell(this->positionX + distX, this->positionY + distY,
                             this->radius, this->cellType, this->randomGen);
-    nCell->angle = (M_PI + this->angle);
+    nCell->angle = M_PI + this->angle;
 
     return nCell;
 }

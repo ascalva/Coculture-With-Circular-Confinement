@@ -109,8 +109,17 @@ public:
      */
     double computeSquaredDisplacement();
 
+    /**
+     * Generate a new cell a short distance away from parent cell, pointing in the opposite direction
+     *     of the parent cell's direction.
+     *
+     * @return The offspring to be added into collection of cells
+     */
     Cell * divide();
 
+    /**
+     * Initializes the position at a certain time to start tracking mean squared displacement data
+     */
     void initMSD();
 
 };

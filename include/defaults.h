@@ -54,6 +54,9 @@ extern double INIT_MIN_SPACING;
  */
 extern double V0;
 
+/**
+ *
+ */
 extern double RC;
 
 /**
@@ -61,6 +64,9 @@ extern double RC;
  */
 extern double DCOEF_ANG;
 
+/**
+ * Value for the time to start tracking MSD data
+ */
 extern int startMSD;
 
 /**
