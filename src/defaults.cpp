@@ -18,13 +18,13 @@ double TMAX = 100000.0;
 
 int TGAP = 100;
 
-double PHI = 0.1;
+double PHI = 1.05;
 
 float RATIO = 1.0;
 
 double INIT_MIN_SPACING = 0.721; //Original: 0.77
 
-double V0 = 0.8;
+double V0 = 0.4;
 
 double RC = 1.0;
 

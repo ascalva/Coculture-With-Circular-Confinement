@@ -27,6 +27,8 @@ void Simulation::populate() {
     int cellNum = 0;
     std::cout << "Starting to populate.." << endl;
 
+#ifdef SEGREGATION
+    //Populate randomly
     while( cellNum < this->totalCells ) {
 
         do {
@@ -35,23 +37,7 @@ void Simulation::populate() {
         } while( sqrt(x*x + y*y) >= this->radius);
 
         //Randomly make x and/or y negative
-        switch( rand() % 4 ) {
-            case 1:
-                x *= -1;
-                break;
-
-            case 2:
-                y *= -1;
-                break;
-
-            case 3:
-                x *= -1;
-                y *= -1;
-                break;
-
-            default:
-                break;
-        }
+        randomNegative(&x, &y);
 
         if( checkNeighbors(x, y) ) {
             if (cellNum < this->healthyCells) {
@@ -60,7 +46,35 @@ void Simulation::populate() {
                 this->population.push_back(new Cell(x, y, cellRad, 1, this->randomGen));
             } cellNum++;
         }
-    } std::cout << "Population completed.." << endl;
+    }
+#else
+    //Segregate population, one shielding the other
+    double r1 = this->radius / sqrt(2.0);
+    while( cellNum < this->healthyCells ) {
+        do {
+            x = this->radius * this->randomGen->use(0x0000);
+            y = this->radius * this->randomGen->use(0x0000);
+        } while( sqrt(x*x + y*y) >= r1 );
+
+        randomNegative(&x, &y);
+        if( checkNeighbors(x, y) ) {
+            this->population.push_back(new Cell(x, y, cellRad, 0, this->randomGen));
+            cellNum++;
+        }
+    } while( cellNum < this->totalCells) {
+        do {
+            x = this->radius * this->randomGen->use(0x0000);
+            y = this->radius * this->randomGen->use(0x0000);
+        } while( sqrt(x*x + y*y) <= r1 || sqrt(x*x + y*y) >= this->radius );
+
+        randomNegative(&x, &y);
+        if( checkNeighbors(x, y) ) {
+            this->population.push_back(new Cell(x, y, cellRad, 1, this->randomGen));
+            cellNum++;
+        }
+    }
+#endif
+    std::cout << "Population completed.." << endl;
 }
 
 bool Simulation::checkNeighbors(double x, double y) {
@@ -81,6 +95,26 @@ bool Simulation::checkNeighbors(double x, double y) {
     } return true;
 }
 
+void Simulation::randomNegative(double * x, double * y) {
+    switch( rand() % 4 ) {
+        case 1:
+            *x *= -1;
+            break;
+
+        case 2:
+            *y *= -1;
+            break;
+
+        case 3:
+            *x *= -1;
+            *y *= -1;
+            break;
+
+        default:
+            break;
+    }
+}
+
 void Simulation::run() {
     vector<Cell*>::iterator i;
     vector<Cell*>::iterator j;
@@ -97,11 +131,12 @@ void Simulation::run() {
     while(t < TMAX) {
         t += DT;
 
+#ifdef POPULATE
         if( !(print % (TGAP * 100) )) {
             i = this->population.begin();
             this->population.push_back( (*i)->divide() );
         }
-
+#endif
         for(i = this->population.begin(); i != this->population.end(); ++i) {
             for(j = this->population.begin(); j != this->population.end(); ++j) {
                 (*i)->computeForce( *j );

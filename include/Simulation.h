@@ -73,6 +73,8 @@ private:
      */
     void printMeta();
 
+    void randomNegative( double * x, double * y);
+
 
 public:
 
