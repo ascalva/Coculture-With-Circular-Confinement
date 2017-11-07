@@ -60,6 +60,21 @@ extern double V0;
 extern double RC;
 
 /**
+ *
+ */
+extern double actCellSize;
+
+/**
+ *
+ */
+extern double healthyReproduction;
+
+/**
+ *
+ */
+extern double unhealthyReproduction;
+
+/**
  * Angular diffusion coefficient
  */
 extern double DCOEF_ANG;

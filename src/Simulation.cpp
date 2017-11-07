@@ -50,6 +50,7 @@ void Simulation::populate() {
 #else
     //Segregate population, one shielding the other
     double r1 = this->radius / sqrt(2.0);
+//    while( cellNum < this->healthyCells ) {
     while( cellNum < this->healthyCells ) {
         do {
             x = this->radius * this->randomGen->use(0x0000);
@@ -126,15 +127,37 @@ void Simulation::run() {
     ofstream meanSquaredDisplacement("./meanSqrtDisp.dat");
 
     double t = 0.0;
-    int print = 0;
+    long print = 0;
 
     while(t < TMAX) {
         t += DT;
 
-#ifdef POPULATE
-        if( !(print % (TGAP * 100) )) {
-            i = this->population.begin();
-            this->population.push_back( (*i)->divide() );
+#ifndef NO_REPOPULATION
+        int max = this->totalCells;
+        int count = 0;
+        if( !(print % (int) ((V0 * healthyReproduction)/actCellSize) )) {
+            for( i = this->population.begin(); i != this->population.end(); ++i) {
+                if( !(*i)->type() ) {
+                    this->population.push_back((*i)->divide());
+                    this->healthyCells++;
+                    this->totalCells++;
+                }
+                count++;
+                if( count == max) break;
+            }
+        }
+        max = this->totalCells;
+        count = 0;
+        if( !(print % (int) ((V0 * unhealthyReproduction)/actCellSize)) ) {
+            for( i = this->population.begin(); i != this->population.end(); ++i) {
+                if( (*i)->type() ) {
+                    this->population.push_back((*i)->divide());
+                    this->unealthyCells++;
+                    this->totalCells++;
+                }
+                count++;
+                if( count == max) break;
+            }
         }
 #endif
         for(i = this->population.begin(); i != this->population.end(); ++i) {
