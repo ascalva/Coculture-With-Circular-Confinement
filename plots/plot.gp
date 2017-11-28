@@ -16,14 +16,16 @@ unset xtics
 unset ytics
 
 set title "Cocultures"
-#set xr [-10.0:20.0]
-set xr [-15.0:15.0]
-set yr [-10.0:10.0]
+#set xr [-15.0:15.0]
+#set yr [-10.0:10.0]
+
+set xr [-30.0:30.0]
+set yr [-20.0:20.0]
 
 set style fill transparent solid 0.7 border lt 3
 set style circle radius 0.5
 
-r = 9.5
+r = 18.5 # Original val: 9.5 (0.5 for padding)
 set object 1 circle back at 0,0 size r fs empty border 4
 
 if (!exists("filename")) filename='coculture.dat'

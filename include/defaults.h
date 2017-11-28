@@ -80,6 +80,16 @@ extern double unhealthyReproduction;
 extern double DCOEF_ANG;
 
 /**
+ * Number of times healthy cells are allowed to divide
+ */
+extern int maxHealthyDivides;
+
+/**
+ * Number of times unhealthy cells are allowed to divide
+ */
+extern int maxUnhealthyDivides;
+
+/**
  * Value for the time to start tracking MSD data
  */
 extern int startMSD;

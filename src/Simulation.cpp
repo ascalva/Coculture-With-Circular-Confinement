@@ -129,35 +129,44 @@ void Simulation::run() {
     double t = 0.0;
     long print = 0;
 
+    int HealthyDivides = 0;
+    int UnhealthyDivides = 0;
+
     while(t < TMAX) {
         t += DT;
 
 #ifndef NO_REPOPULATION
+
+        /// Divide healthy cells
         int max = this->totalCells;
         int count = 0;
-        if( !(print % (int) ((V0 * healthyReproduction)/actCellSize) )) {
+        if( !(print % (int) ((V0 * healthyReproduction)/actCellSize) )
+            && HealthyDivides < maxHealthyDivides) {
             for( i = this->population.begin(); i != this->population.end(); ++i) {
-                if( !(*i)->type() ) {
+                if( !(*i)->type() ) { //If type() returns 0 (healthy) negate val
                     this->population.push_back((*i)->divide());
                     this->healthyCells++;
                     this->totalCells++;
                 }
                 count++;
                 if( count == max) break;
-            }
+            } HealthyDivides++;
         }
+
+        /// Divide unhealthy cells
         max = this->totalCells;
         count = 0;
-        if( !(print % (int) ((V0 * unhealthyReproduction)/actCellSize)) ) {
+        if( !(print % (int) ((V0 * unhealthyReproduction)/actCellSize))
+                && UnhealthyDivides < maxUnhealthyDivides) {
             for( i = this->population.begin(); i != this->population.end(); ++i) {
-                if( (*i)->type() ) {
+                if( (*i)->type() ) { //If type() returns 1 (unhealthy)
                     this->population.push_back((*i)->divide());
                     this->unealthyCells++;
                     this->totalCells++;
                 }
                 count++;
                 if( count == max) break;
-            }
+            } UnhealthyDivides++;
         }
 #endif
         for(i = this->population.begin(); i != this->population.end(); ++i) {
