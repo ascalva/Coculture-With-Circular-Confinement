@@ -9,6 +9,8 @@
 #ifndef COCULTURE_DEFAULTS_H
 #define COCULTURE_DEFAULTS_H
 
+#include <math.h>
+
 /**
  * The radius of the confined area in which the cells live
  */
@@ -60,9 +62,29 @@ extern double V0;
 extern double RC;
 
 /**
- *
+ * Size of a cell in micro meters (real world size)
  */
 extern double actCellSize;
+
+extern double Eh;
+
+extern double Ec;
+
+extern double F0;
+
+extern double nu_h;
+
+extern double nu_c;
+
+extern double sigma_hh;
+
+extern double alpha;
+
+extern double beta;
+
+extern double sigma_cc;
+
+extern double sigma_hc;
 
 /**
  *

@@ -19,21 +19,47 @@ Cell::Cell(double x, double y, double radius, short cellType, class randomGen * 
 
     this->forceX = 0.0;
     this->forceY = 0.0;
+
+    initParams();
+}
+
+void Cell::initParams() {
+    double Ehh = 1.0 / computeIEeff(Eh, Eh, nu_h, nu_h);
+    double Ehc = 1.0 / computeIEeff(Eh, Ec, nu_h, nu_c);
+    double Ecc = 1.0 / computeIEeff(Ec, Ec, nu_c, nu_c);
+    double Rhh = 1.0 / computeIReff(cellRadius, cellRadius);
+    double Rhc = Rhh;
+    double Rcc = Rhh;
+
+    this->A[0] = (4.0 / 3.0) * Ehh * sqrt(Rhh) / F0;
+    this->A[1] = (4.0 / 3.0) * Ehc * sqrt(Rhc) / F0;
+    this->A[2] = (4.0 / 3.0) * Ecc * sqrt(Rcc) / F0;
+    this->B[0] = sqrt(8 * M_PI * Ehh * sigma_hh) * pow(Rhh, 0.75) / F0;
+    this->B[1] = sqrt(8 * M_PI * Ehc * sigma_hc) * pow(Rhc, 0.75) / F0;
+    this->B[2] = sqrt(8 * M_PI * Ecc * sigma_cc) * pow(Rcc, 0.75) / F0;
+}
+
+double Cell::computeIEeff(double E1, double E2, double v1, double v2) {
+    return ((1.0 - pow(v1, 2)) / E1) + ((1.0 - pow(v2, 2)) / E2);
+}
+
+double Cell::computeIReff(double R1, double R2) {
+    return (1.0 / R1) + (1.0 / R2);
 }
 
 double Cell::computeJKRPotential(double h, int type) {
 
     /* contact types (3): 0 -> HH, 1 -> HU, 2 -> UU */
-    double A[3] = {30.0, 15.0, 20.0}; //v1.0
-    double B[3] = {11.0, 4.5, 7.0}; //v1.0
+//    double A[3] = {30.0, 15.0, 20.0}; //v1.0
+//    double B[3] = {11.0, 4.5, 7.0}; //v1.0
 
-//    double A[3] = {26.667, 15.2381, 10.6667}; //v2.0
-//    double B[3] = {11.21, 2.6797, 3.88325}; //v2.0
+//    double A[3] = {26.6667, 15.2381, 10.6667}; //v2.0
+//    double B[3] = {14.1796, 3.38958, 4.91197}; //v2.0
 
     double h34 = pow(h, 0.75);
     double h32 = h34 * h34;
 
-    return (A[type] * h32) - (B[type] * h34);
+    return (this->A[type] * h32) - (this->B[type] * h34);
 }
 
 void Cell::computeForce(class Cell * neighbor) {

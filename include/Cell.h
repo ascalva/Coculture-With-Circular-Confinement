@@ -44,6 +44,10 @@ private:
      */
     double radius;
 
+    double A[3];
+
+    double B[3];
+
     class randomGen * randomGen = nullptr;
 
     /**
@@ -67,6 +71,12 @@ private:
      * Calculates the angle of a cell (somewhat randomly)
      */
     double computeAngle(uint16_t idum);
+
+    void initParams();
+
+    double computeIEeff(double E1, double E2, double v1, double v2);
+
+    double computeIReff(double R1, double R2);
 
 public:
 

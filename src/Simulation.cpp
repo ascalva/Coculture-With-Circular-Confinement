@@ -27,7 +27,7 @@ void Simulation::populate() {
     int cellNum = 0;
     std::cout << "Starting to populate.." << endl;
 
-#ifdef SEGREGATION
+#ifndef SEGREGATION
     //Populate randomly
     while( cellNum < this->totalCells ) {
 
