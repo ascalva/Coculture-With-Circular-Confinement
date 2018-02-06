@@ -2,6 +2,7 @@ Role of self-propulsion in cell segregation of 2D circularly confined co-culture
 ================================================================================
 
 **Author**: Alberto Serrano (RIT undergraduate)
+
 **Adviser**: Dr. Moumita Das (Assistant Professor of Physics at RIT)
 
 ## Abstract
