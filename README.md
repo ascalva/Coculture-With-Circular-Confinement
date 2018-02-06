@@ -1,7 +1,11 @@
-Coculture With Circular Confinement
-===================================
+Role of self-propulsion in cell segregation of 2D circularly confined co-culture
+================================================================================
 
-**Author**: Alberto Serrano
+**Author**: Alberto Serrano (RIT undergraduate)
+**Adviser**: Dr. Moumita Das (Assistant Professor of Physics at RIT)
+
+## Abstract
+Cell segregation is a key process during tissue mor- phogenesis in embryonic development and tumor formation. That is why a deeper understanding into the role of self-propulsion and contact interactions is needed, while using a simple model. A compu- tational approach was taken to study the problem more closely by applying our model to a 2D co- culture with circular confinement. Core-shell struc- tures were not observed and it was shown that can- cer cells move faster than healthy cells as seen in experiments.
 
 ## Running the simulation
 1. Run `make` to generate executable file.
