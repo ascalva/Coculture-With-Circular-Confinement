@@ -4,7 +4,7 @@ Coculture With Circular Confinement
 **Author**: Alberto Serrano
 
 ## Running the simulation
-1. Run `make` to get an executable file.
+1. Run `make` to generate executable file.
     - Remove the compilation flag `-DCMD_OUT` from makefile if you want the data to be outputted to a file (1.out).
 2. `defaults.cpp` can be modified to change simulation parameters.
 3. Run `./coculture` to start simulation.

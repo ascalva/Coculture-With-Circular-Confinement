@@ -44,10 +44,19 @@ private:
      */
     double radius;
 
+    /**
+     * Calculated repulsive force parameters between cells
+     */
     double A[3];
 
+    /**
+     * Calculated attractive force parameters between cells
+     */
     double B[3];
 
+    /**
+     * Contains an instance of the random generator class
+     */
     class randomGen * randomGen = nullptr;
 
     /**
@@ -72,10 +81,28 @@ private:
      */
     double computeAngle(uint16_t idum);
 
+    /**
+     * Calculates repulsive and attractive force parameters between healthy and
+     * cancer cells.
+     */
     void initParams();
 
+    /**
+     * Helper function for initParams()
+     * @param E1
+     * @param E2
+     * @param v1
+     * @param v2
+     * @return
+     */
     double computeIEeff(double E1, double E2, double v1, double v2);
 
+    /**
+     * Helper function for initParams()
+     * @param R1
+     * @param R2
+     * @return
+     */
     double computeIReff(double R1, double R2);
 
 public:
